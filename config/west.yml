@@ -1,8 +1,8 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/cdc-mkb/zmk/tree/mouse-pim447
-        #url-base: https://github.com/zmkfirmware
+      #url-base: https://github.com/zmkfirmware
+        url-base: https://github.com/t0bybr
   projects:
     - name: zmk
       remote: zmkfirmware
