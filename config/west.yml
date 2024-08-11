@@ -1,9 +1,8 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      #url-base: https://github.com/t0bybr
-      url-base: https://github.com/cdc-mkb
-        #url-base: https://github.com/zmkfirmware
+      url-base: https://github.com/t0bybr
+      #url-base: https://github.com/zmkfirmware
   projects:
     - name: zmk
       remote: zmkfirmware
