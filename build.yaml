@@ -17,3 +17,9 @@ include:
     shield: 1984x_left
   - board: seeeduino_xiao_ble
     shield: 1984x_right
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
