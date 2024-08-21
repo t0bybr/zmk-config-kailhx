@@ -21,13 +21,19 @@
         ;
 };
 
+&xiao_i2c_sda {
+    pins = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
+};
+
+&xiao_i2c_scl {
+    pins = <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+};
+
 
 &xiao_i2c {
 	status = "okay";
 
-    pinctrl-0 = <&xiao_d 0 GPIO_ACTIVE_HIGH>
-                , <&xiao_d 1 GPIO_ACTIVE_HIGH>
-                ;
+    pinctrl-0 = <xiao_i2c_sda &xiao_i2c_scl>;
 
 	trackball_pim447@a {
 		compatible = "pimoroni,trackball_pim447";
