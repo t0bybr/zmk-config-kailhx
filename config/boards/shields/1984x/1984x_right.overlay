@@ -25,9 +25,9 @@
 &xiao_i2c {
 	status = "okay";
 
-    pinctrl-0 = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
-    pinctrl-1 = <&xiao_d 1 GPIO_ACTIVE_HIGH>;
-    pinctrl-names = "default", "sleep";
+    pinctrl-0 = <&xiao_d 0 GPIO_ACTIVE_HIGH>
+                , <&xiao_d 1 GPIO_ACTIVE_HIGH>
+                ;
 
 	trackball_pim447@a {
 		compatible = "pimoroni,trackball_pim447";
