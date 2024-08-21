@@ -21,7 +21,7 @@
         ;
 };
 
-<&xiao_i2c {
+&xiao_i2c {
 	status = "okay";
 
     sda-pin = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
