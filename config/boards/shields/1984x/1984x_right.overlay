@@ -26,6 +26,7 @@
 
     pinctrl-0 = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
     pinctrl-1 = <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+    pinctrl-names = "default", "sleep";
 
 	trackball_pim447@a {
 		compatible = "pimoroni,trackball_pim447";
