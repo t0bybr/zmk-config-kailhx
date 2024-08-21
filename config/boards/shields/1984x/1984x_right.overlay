@@ -29,7 +29,9 @@
     };
 
     xiao_i2c_scl: xiao_i2c_scl {
-        psels =  <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+        group1 {
+            psels =  <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+        }
     };
 };
 
