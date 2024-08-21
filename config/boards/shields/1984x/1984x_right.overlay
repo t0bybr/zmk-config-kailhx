@@ -23,8 +23,8 @@
 
 &pinctrl {
     i2c0_pins: i2c0_pins {
-        pinmux = <&xiao_d 0 (PINMUX_FUNC_A | GPIO_ACTIVE_HIGH)>,
-                 <&xiao_d 1 (PINMUX_FUNC_A | GPIO_ACTIVE_HIGH)>;
+        pinmux = <&xiao_d 0 (PINMUX_FUNC_A | GPIO_ACTIVE_HIGH)>
+                 , <&xiao_d 1 (PINMUX_FUNC_A | GPIO_ACTIVE_HIGH)>;
     };
 };
 
