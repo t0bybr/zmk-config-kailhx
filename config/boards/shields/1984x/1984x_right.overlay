@@ -24,13 +24,13 @@
 &pinctrl {
     xiao_i2c_sda: xiao_i2c_sda {
         group1 {
-            psels = <0>;
+            psels = <1>;
         };
     };
 
     xiao_i2c_scl: xiao_i2c_scl {
         group1 {
-            psels = <1>;
+            psels = <0>;
         };
     };
 };
