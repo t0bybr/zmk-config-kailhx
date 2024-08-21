@@ -24,13 +24,13 @@
 &pinctrl {
     xiao_i2c_sda: xiao_i2c_sda {
         group1 {
-            psels = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
+            psels = <0>;
         };
     };
 
     xiao_i2c_scl: xiao_i2c_scl {
         group1 {
-            psels =  <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+            psels = <1>;
         };
     };
 };
