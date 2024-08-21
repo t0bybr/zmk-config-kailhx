@@ -20,3 +20,32 @@
         , <&xiao_d 2 GPIO_ACTIVE_HIGH>
         ;
 };
+
+<&xiao_i2c {
+	status = "okay";
+
+    sda-pin = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
+    scl-pin = <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+
+	#oled: ssd1306@3c {
+	#	compatible = "solomon,ssd1306fb";
+	#	reg = <0x3c>;
+	#	label = "DISPLAY";
+	#	width = <128>;
+	#	height = <32>;
+	#	segment-offset = <0>;
+	#	page-offset = <0>;
+	#	display-offset = <0>;
+	#	multiplex-ratio = <31>;
+	#	segment-remap;
+	#	com-invdir;
+	#	com-sequential;
+	#	prechargep = <0x22>;
+	#};
+
+	trackball_pim447@a {
+		compatible = "pimoroni,trackball_pim447";
+		reg = <0xa>;
+		label = "TRACKBALL_PIM447";
+	};
+};
