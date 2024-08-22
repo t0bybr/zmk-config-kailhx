@@ -17,4 +17,6 @@ include:
     shield: 1984x_left
   - board: seeeduino_xiao_ble
     shield: 1984x_right
+    snippet: zmk-usb-logging
+
 
