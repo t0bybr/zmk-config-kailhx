@@ -15,6 +15,13 @@ config ZMK_TRACKBALL_PIM447
 
 endif
 
+if SHIELD_1984X_LEFT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+  default n
+
+endif
+
 if SHIELD_1984X_LEFT || SHIELD_1984X_RIGHT
 config ZMK_SPLIT
   default y
