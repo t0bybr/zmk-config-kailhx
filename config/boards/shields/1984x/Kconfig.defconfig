@@ -1,8 +1,8 @@
 
-if SHIELD_1984X_LEFT
+if SHIELD_1984X_RIGHT
 
 config ZMK_KEYBOARD_NAME
-  default "1984x"
+  default "kailhx"
 
 config ZMK_SPLIT_ROLE_CENTRAL
   default y
