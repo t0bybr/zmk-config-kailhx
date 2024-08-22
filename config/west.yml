@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: pim447-without-miryoku
+      revision: pim447-wihtout-miryoku
       import: app/west.yml
     # - name: miryoku
     #   url: https://github.com/t0bybr/miryoku_zmk.git
