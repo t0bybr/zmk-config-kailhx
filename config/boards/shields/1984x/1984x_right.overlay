@@ -1,5 +1,5 @@
 #include "1984x.dtsi"
-#include <dt-bindings/zmk/trackball_pim447.h>
+
 
 &default_transform {
     col-offset = <5>;
