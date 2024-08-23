@@ -1,8 +1,6 @@
 #include "1984x.dtsi"
 
 
-
-
 &default_transform {
     col-offset = <5>;
 };
@@ -46,9 +44,4 @@
 
     pinctrl-0 = <&i2c0_default &i2c0_sleep>;
 
-	trackball_pim447@a {
-		compatible = "pimoroni,trackball_pim447";
-		reg = <0xa>;
-		label = "TRACKBALL_PIM447";
-	};
 };
