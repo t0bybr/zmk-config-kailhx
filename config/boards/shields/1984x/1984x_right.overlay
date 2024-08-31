@@ -39,19 +39,17 @@
 	};
 };
 
-/ {
-    trackball: trackball {
-        compatible = "pimoroni,trackball";
-        reg = <0x0A>;
-        int-gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
-    };
-};
 
 &xiao_i2c {
 	status = "okay";
 
     pinctrl-0 = <&i2c0_default &i2c0_sleep>;
 
-	trackball = <&trackball>;
+    trackball: trackball@0a {
+        compatible = "pimoroni,trackball";
+        reg = <0x0A>;
+		poll-interval = <20>;
+
+    };
 
 };
