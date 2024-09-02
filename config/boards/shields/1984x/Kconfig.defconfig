@@ -5,3 +5,11 @@ config ZMK_SPLIT
   default y
 
 endif
+
+if SHIELD_1984X_RIGHT
+
+config CUSTOM_INIT
+    bool "Enable custom initialization"
+    default y
+
+endif # SHIELD_1984X_RIGHT
