@@ -122,37 +122,6 @@
       bindings = <&mo>, <&kp>;
     };
 
-    trackball: trackball {
-        compatible = "zmk,behavior-sensor-trackball";
-        label = "TRACKBALL";
-        #sensor-binding-cells = <0>;
-        trackball = <&pim447>;
-    };
-
-            tb_led_red: trackball_led_red {
-            compatible = "zmk,behavior-trackball-led";
-            label = "TRACKBALL_LED_RED";
-            #binding-cells = <0>;
-            red = <255>;
-        };
-        tb_led_green: trackball_led_green {
-            compatible = "zmk,behavior-trackball-led";
-            label = "TRACKBALL_LED_GREEN";
-            #binding-cells = <0>;
-            green = <255>;
-        };
-        tb_led_blue: trackball_led_blue {
-            compatible = "zmk,behavior-trackball-led";
-            label = "TRACKBALL_LED_BLUE";
-            #binding-cells = <0>;
-            blue = <255>;
-        };
-        tb_led_white: trackball_led_white {
-            compatible = "zmk,behavior-trackball-led";
-            label = "TRACKBALL_LED_WHITE";
-            #binding-cells = <0>;
-            white = <255>;
-        };
 /*
     mouse_l: mouse_left {
       compatible = "zmk,behavior-mod-morph";
@@ -180,10 +149,7 @@
     };*/
   };
 
-  sensors {
-      compatible = "zmk,keymap-sensors";
-      sensors = <&trackball>;
-  };
+
 
   combos {
     compatible = "zmk,combos";
@@ -212,11 +178,10 @@
 
     default_layer {
       bindings = <
-&tb_led_red &tb_led_green        &kp F        &kp P        &kp B                &kp J        &kp L        &kp U        &kp Y        &bspc_colon
+   &kp Q        &kp W        &kp F        &kp P        &kp B                &kp J        &kp L        &kp U        &kp Y        &bspc_colon
    &kp A        &kp R        &kp S        &kp T        &kp G                &kp M        &kp N        &kp E        &kp I        &kp O
    &kp Z        &kp X        &hm LSFT C   &kp D        &kp V                &kp K        &kp H        &kp COMMA    &kp DOT      &hmt RCTRL FSLH
                             &mt LALT BSPC &mt LGUI ESC &lhp NUM TAB         &kp SPACE    &mo NAV      &mt RSFT RET
-                            &trackball
       >;
       sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 
