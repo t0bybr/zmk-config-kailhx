@@ -27,8 +27,14 @@
         zephyr,console = &cdc_acm_uart;
         zephyr,shell-uart = &cdc_acm_uart;
         zephyr,uart-mcumgr = &cdc_acm_uart;
-        zephyr,bt-mon-uart = &cdc_acm_uart;
-        zephyr,bt-c2h-uart = &cdc_acm_uart;
+    };
+};
+
+&usbd {
+    status = "okay";
+    cdc_acm_uart: cdc_acm_uart {
+        compatible = "zephyr,cdc-acm-uart";
+        label = "CDC_ACM_0";
     };
 };
 
