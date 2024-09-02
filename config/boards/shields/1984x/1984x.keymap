@@ -122,6 +122,12 @@
       bindings = <&mo>, <&kp>;
     };
 
+    trackball: trackball {
+        compatible = "zmk,behavior-sensor-trackball";
+        label = "TRACKBALL";
+        #sensor-binding-cells = <0>;
+        trackball = <&pim447>;
+    };
 /*
     mouse_l: mouse_left {
       compatible = "zmk,behavior-mod-morph";
@@ -149,6 +155,11 @@
     };*/
   };
 
+  sensors {
+      compatible = "zmk,keymap-sensors";
+      sensors = <&trackball>;
+  };
+  
   combos {
     compatible = "zmk,combos";
 
@@ -180,7 +191,10 @@
    &kp A        &kp R        &kp S        &kp T        &kp G                &kp M        &kp N        &kp E        &kp I        &kp O
    &kp Z        &kp X        &hm LSFT C   &kp D        &kp V                &kp K        &kp H        &kp COMMA    &kp DOT      &hmt RCTRL FSLH
                             &mt LALT BSPC &mt LGUI ESC &lhp NUM TAB         &kp SPACE    &mo NAV      &mt RSFT RET
+                            &trackball
       >;
+      sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+
     };
 
     num_layer {
