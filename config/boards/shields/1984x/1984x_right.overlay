@@ -47,6 +47,8 @@
     trackball: trackball@0a {
         compatible = "pimoroni,trackball";
         reg = <0x0A>;
+		int-gpios = <&xiao_d 11 GPIO_ACTIVE_LOW>;
+
     };
 
 };
