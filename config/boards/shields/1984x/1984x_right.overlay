@@ -22,34 +22,29 @@
         ;
 };
 
-/ {
-    chosen {
-        zephyr,console = &cdc_acm_uart;
-        zephyr,shell-uart = &cdc_acm_uart;
-        zephyr,uart-mcumgr = &cdc_acm_uart;
+&pinctrl {
+	xiao_i2c_sda: xiao_i2c_sda {
+        group1 {
+            psels = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
+        };
+    };
+
+    xiao_i2c_scl: xiao_i2c_scl {
+        group1 {
+            psels = <&xiao_d 1 GPIO_ACTIVE_HIGH>;
+        };
     };
 };
 
-&usbd {
-    status = "okay";
-    cdc_acm_uart: cdc_acm_uart {
-        compatible = "zephyr,cdc-acm-uart";
-        label = "CDC_ACM_0";
-    };
-};
 
-&i2c0 {
-	compatible = "seeed,xiao-i2c";
-    status = "okay";
+&xiao_i2c {
+	status = "okay";
+    pinctrl-0 = <&xiao_i2c_sda &xiao_i2c_scl>;
 
-    clock-frequency = <I2C_BITRATE_STANDARD>;
-    sda-pin = <&xiao_d 0>; // Assuming SDA is on D0
-    scl-pin = <&xiao_d 1>; // Assuming SCL is on D1
 
     pim447: pim447@0a {
-        compatible = "pimoroni,trackball";
+        compatible = "pimoroni,pim447";
         reg = <0x0A>;
-		interrupt-gpios = <&xiao_d 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
 };
