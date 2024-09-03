@@ -41,6 +41,7 @@
 &i2c0 {
 	compatible = "seeed,xiao-i2c";
     status = "okay";
+	probed;
 
     clock-frequency = <I2C_BITRATE_STANDARD>;
     sda-pin = <&xiao_d 0>; // Assuming SDA is on D0
