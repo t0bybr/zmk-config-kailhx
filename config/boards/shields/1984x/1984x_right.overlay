@@ -26,16 +26,40 @@
     i2c1_default: i2c1_default {
 		group1 {
 			psels = <NRF_PSEL(TWIM_SDA, 0, 0)>,
-				<NRF_PSEL(TWIM_SCL, 0, 1)>;
+					<NRF_PSEL(TWIM_SCL, 0, 1)>;
 		};
 	};
 
 	i2c1_sleep: i2c1_sleep {
 		group1 {
 			psels = <NRF_PSEL(TWIM_SDA, 0, 0)>,
-				<NRF_PSEL(TWIM_SCL, 0, 1)>;
+					<NRF_PSEL(TWIM_SCL, 0, 1)>;
 			low-power-enable;
 		};
+	};
+};
+
+/ {
+	xiao_d: connector {
+		compatible = "seeed,xiao-gpio";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map
+			= <0 0 &gpio0 2 0>		/* D0 */
+			, <1 0 &gpio0 3 0>		/* D1 */
+			, <2 0 &gpio0 28 0>		/* D2 */
+			, <3 0 &gpio0 29 0>		/* D3 */
+			, <4 0 &gpio0 4 0>		/* D4 */
+			, <5 0 &gpio0 5 0>		/* D5 */
+			, <6 0 &gpio1 11 0>		/* D6 */
+			, <7 0 &gpio1 12 0>		/* D7 */
+			, <8 0 &gpio1 13 0>		/* D8 */
+			, <9 0 &gpio1 14 0>		/* D9 */
+			, <10 0 &gpio1 15 0>	/* D10 */
+			, <30 0 &gpio0 9 0>		/* D30 */
+			, <31 0 &gpio0 10 0>	/* D31 */
+			;
 	};
 };
 
@@ -51,7 +75,31 @@
     pim447: pim447@0a {
         compatible = "pimoroni,pim447";
         reg = <0x0A>;
+		interrupt-gpios = <&xiao_d 30 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
     };
 
+};
+
+&leds {
+	compatible = "gpio-leds";
+	led0: led_0 {
+		gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+		label = "Red LED";
+	};
+	led1: led_1 {
+		gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+		label = "Green LED";
+	};
+	led2: led_2 {
+		gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+		label = "Blue LED";
+	};
+};
+
+&pwmleds {
+	compatible = "pwm-leds";
+	pwm_led0: pwm_led_0 {
+		pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
+	};
 };
