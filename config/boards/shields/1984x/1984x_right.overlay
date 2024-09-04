@@ -51,7 +51,7 @@
     pim447: pim447@0a {
         compatible = "pimoroni,pim447";
         reg = <0x0A>;
-		interrupt-gpios = <&gpio 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
     };
 
