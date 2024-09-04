@@ -44,8 +44,8 @@
 
     pinctrl-0 = <&i2c0_default &i2c0_sleep>;
 
-    trackball: trackball@0a {
-        compatible = "pimoroni,trackball";
+    pim447: pim447@0a {
+        compatible = "pimoroni,pim447";
         reg = <0x0A>;
 		int-gpios = <&xiao_d 11 GPIO_ACTIVE_LOW>;
 
