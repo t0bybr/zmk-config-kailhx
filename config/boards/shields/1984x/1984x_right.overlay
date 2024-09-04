@@ -7,18 +7,18 @@
 
 &kscan0 {
     row-gpios
-        = <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        = <&gpio 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
 
     col-gpios
-        = <&xiao_d 7 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 8 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 9 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 10 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 2 GPIO_ACTIVE_HIGH>
+        = <&gpio 7 GPIO_ACTIVE_HIGH>
+        , <&gpio 8 GPIO_ACTIVE_HIGH>
+        , <&gpio 9 GPIO_ACTIVE_HIGH>
+        , <&gpio 10 GPIO_ACTIVE_HIGH>
+        , <&gpio 2 GPIO_ACTIVE_HIGH>
         ;
 };
 
@@ -39,15 +39,18 @@
 	};
 };
 
-&xiao_i2c {
+&i2c0 {
 	status = "okay";
 
-    pinctrl-0 = <&i2c0_default &i2c0_sleep>;
+	compatible = "nordic,nrf-twi";
+    pinctrl-0 = <&i2c0_default>;
+	pinctrl-1 = <&i2c0_sleep>;
+	pinctrl-names = "default", "sleep";
 
     pim447: pim447@0a {
         compatible = "pimoroni,pim447";
         reg = <0x0A>;
-		int-gpios = <&xiao_d 11 GPIO_ACTIVE_LOW>;
+		interrupt-gpios = <&gpio 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
     };
 
