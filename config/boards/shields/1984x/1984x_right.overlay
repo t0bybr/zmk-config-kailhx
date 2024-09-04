@@ -21,3 +21,21 @@
         , <&xiao_d 2 GPIO_ACTIVE_HIGH>
         ;
 };
+
+&pinctrl {
+    i2c1_default: i2c1_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 0)>,
+				<NRF_PSEL(TWIM_SCL, 0, 1)>;
+		};
+	};
+
+	i2c1_sleep: i2c1_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 0)>,
+				<NRF_PSEL(TWIM_SCL, 0, 1)>;
+			low-power-enable;
+		};
+	};
+};
+
