@@ -49,7 +49,7 @@
     cdc_acm_uart0: cdc_acm_uart0 {
         compatible = "zephyr,cdc-acm-uart";
     };
-}
+};
 
 &xiao_i2c {
 	status = "okay";
