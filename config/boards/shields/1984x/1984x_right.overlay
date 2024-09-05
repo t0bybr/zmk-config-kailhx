@@ -39,7 +39,7 @@
 	};
 };
 
-&xiao_i2c {
+&i2c1 {
 	status = "okay";
 
 	compatible = "nordic,nrf-twi";
