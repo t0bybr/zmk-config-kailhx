@@ -51,14 +51,14 @@
     pinctrl-0 = <&i2c1_default>;
 	pinctrl-1 = <&i2c1_sleep>;
 	pinctrl-names = "default", "sleep";
-    clock-frequency = <400000>;
+    clock-frequency = <100000>;
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         label = "DISPLAY";
         width = <128>;
         height = <32>;
-        segment-offset = <0>;
+        segment-offset = <2>;
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
