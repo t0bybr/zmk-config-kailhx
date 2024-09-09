@@ -64,6 +64,7 @@
         multiplex-ratio = <31>;
         segment-remap;
         com-invdir;
+        inversion-off;
         com-sequential;
         prechargep = <0x22>;
     };
