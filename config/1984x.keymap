@@ -147,13 +147,13 @@
 
     sensor_mouse: sensor_mouse {
         compatible = "zmk,behavior-sensor-mouse";
-        sensor = <&pim447>;
+        sensor = <&trackball_pim447>;
         mouse-gain = <1>;
     };
 
     sensor_click: sensor_click {
         compatible = "zmk,behavior-sensor-press";
-        sensor = <&pim447>;
+        sensor = <&trackball_pim447>;
         binding = <&kp MB1>;  // Map to mouse button 1 (left click)
     };
   };
