@@ -4,3 +4,11 @@ config SHIELD_1984X_LEFT
 
 config SHIELD_1984X_RIGHT
     def_bool $(shields_list_contains,1984x_right)
+
+config LEFT
+    bool "Left Side"
+    default n
+
+config RIGHT
+    bool "Right Side"
+    default n
