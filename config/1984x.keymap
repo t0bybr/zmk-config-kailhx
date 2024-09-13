@@ -231,7 +231,6 @@
    &kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
    &hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
                                      &lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
-                &mmv &pim447 &mmv MOVE_UP
       >;
     };
 
@@ -265,7 +264,7 @@
 
     mouse_layer {
       bindings = <
-   &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &sensor_mouse            &sensor_click            &none            &none            &ext_power EP_ON
+   &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &mmv &pim447            &none            &none            &none            &ext_power EP_ON
    &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none            &none            &none            &none            &ext_power EP_OFF
    &none            &none            &none            &none            &bt BT_CLR               &none            &none            &none            &none            &none
                                      &trans           &none            &none                    &none            &none            &none
