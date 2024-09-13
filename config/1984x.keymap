@@ -15,7 +15,7 @@
     scale-divisor = <3>;
 };
 
-#ifdef CONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+#ifdef CONFIG_ZMK_RIGHT
 
 &pinctrl {
     i2c1_default: i2c1_default {
@@ -55,7 +55,7 @@
 };
 #endif
 
-#ifdef CONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+#ifdef CONFIG_ZMK_LEFT
 
 &pinctrl {
     i2c1_default: i2c1_default {
