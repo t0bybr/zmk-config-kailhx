@@ -314,7 +314,7 @@
 
 		mouse_layer {
 			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &mmv MOVE_LEFT                  &mmv <&pim447>                &none            &none            &ext_power EP_ON
+				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &mmv MOVE_LEFT                  &mmv MOVE_RIGHT                &none            &none            &ext_power EP_ON
 				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none            &none            &none            &none            &ext_power EP_OFF
 				&none            &none            &none            &none            &bt BT_CLR               &none            &none            &none            &none            &none
 													&trans           &none            &none                    &none            &none            &none
