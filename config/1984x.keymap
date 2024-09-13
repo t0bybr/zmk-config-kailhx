@@ -53,6 +53,19 @@
 			interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 		};
 	};
+
+	behaviors {
+
+		mmv: mouse_move {
+			compatible = "zmk,behavior-input-two-axis";
+			#binding-cells = <0>;
+			sensor = <&pim447>;
+			x-input-code = <INPUT_REL_X>;
+			y-input-code = <INPUT_REL_Y>;
+			time-to-max-speed-ms = <300>;
+			acceleration-exponent = <1>;
+		};
+	};
 #endif
 
 #ifdef CONFIG_LEFT
@@ -242,15 +255,6 @@
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
 
-		mmv: mouse_move {
-			compatible = "zmk,behavior-input-two-axis";
-			#binding-cells = <0>;
-			sensor = <&pim447>;
-			x-input-code = <INPUT_REL_X>;
-			y-input-code = <INPUT_REL_Y>;
-			time-to-max-speed-ms = <300>;
-			acceleration-exponent = <1>;
-		};
   	};
 
   /*combos {
