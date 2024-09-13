@@ -193,7 +193,7 @@
    &kp Q        &kp W        &kp F        &kp P        &kp B                &kp J        &kp L        &kp U        &kp Y        &bspc_colon
    &kp A        &kp R        &kp S        &kp T        &kp G                &kp M        &kp N        &kp E        &kp I        &kp O
    &kp Z        &kp X        &hm LSFT C   &kp D        &kp V                &kp K        &kp H        &kp COMMA    &kp DOT      &hmt RCTRL FSLH
-                            &mt LALT BSPC &mt LGUI ESC &lhp NUM TAB         &kp SPACE    &mo NAV      &mt RSFT RET
+                            &mt LALT BSPC &mt LGUI ESC &lhp NUM TAB         &mo MOUSE_LAYER    &mo NAV      &mt RSFT RET
       >;
       sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
 
@@ -224,6 +224,15 @@
    &none        &none        &none        &none        &none                &none        &none        &none        &none        &none
                              &trans       &none        &none                &none        &none        &none
       >;
+    };
+
+    MOUSE_LAYER {
+        bindings = <
+           &kp F1       &kp F2       &kp F3       &kp F4       &kp F5               &sensor_mouse       &sensor_click       &kp F8       &kp F9       &kp F10
+           &kp CAPS     &none        &kp PSCRN    &kp SLCK     &kp PAUSE_BREAK      &none        &none        &none        &none        &none
+           &none        &none        &none        &none        &none                &none        &none        &none        &none        &none
+                                     &trans       &none        &none                &none        &none        &none
+        >;
     };
 
 /*    mouse_layer {
