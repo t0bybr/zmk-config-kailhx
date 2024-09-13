@@ -235,24 +235,6 @@
         >;
     };
 
-/*    mouse_layer {
-      bindings = <
-   &none        &none        &none        &none        &none                &mkp MB5     &mkp LCLK    &mkp MCLK    &mkp RCLK    &mkp MB4
-   &none        &none        &none        &none        &none                &mouse_l     &mouse_d     &mouse_u     &mouse_r     &mwh SCROLL_VERT(-40)
-   &kp LCTRL    &kp LALT     &kp LSFT     &tog MOUSE   &none                &mwh SCROLL_HOR(40) &mwh SCROLL_HOR(-40) &none &none &mwh SCROLL_VERT(40)
-                             &trans       &kp LGUI     &none                &none        &none        &kp RSFT
-      >;
-    };*/
-
-    mouse_layer {
-      bindings = <
-   &none        &none        &none        &none        &none                &none        &none        &none        &none        &none
-   &none        &none        &none        &none        &none                &none        &none        &none        &none        &none
-   &kp LCTRL    &kp LALT     &kp LSFT     &tog MOUSE   &none                &none        &none        &none        &none        &none
-                             &trans       &kp LGUI     &none                &none        &none        &none
-      >;
-    };
-
     system_layer {
       bindings = <
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR           &none        &none        &none        &none        &none
