@@ -49,7 +49,7 @@
 	pinctrl-names = "default", "sleep";
 	clock-frequency = <I2C_BITRATE_FAST>;
 
-    pim447: pim447@0a {
+    trackball_pim447: trackball@0a {
         compatible = "pimoroni,pim447";
         reg = <0x0A>;
 		interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
