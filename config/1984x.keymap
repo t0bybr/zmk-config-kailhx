@@ -10,6 +10,10 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/mouse.h>
 
+&mmv_input_listener {
+    scale-multiplier = <5>;
+    scale-divisor = <3>;
+};
 
 
 &pinctrl {
@@ -42,6 +46,9 @@
 	trackball_pim447: pim447@0a {
         	compatible = "pimoroni,pim447";
         	reg = <0x0A>;
+	        label = "PIM447";
+	        #address-cells = <1>;
+	        #size-cells = <0>;
 		interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
@@ -184,19 +191,22 @@
 
     sensor_mouse: sensor_mouse {
         compatible = "zmk,behavior-sensor-mouse";
-        sensor = <&trackball_pim447>;
+        sensor = <&pim447>;
         mouse-gain = <1>;
         #binding-cells = <0>;
 
+
+        mmv: mouse_move {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_X>;
+            y-input-code = <INPUT_REL_Y>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+        };
     };
 
-    sensor_click: sensor_click {
-        compatible = "zmk,behavior-sensor-press";
-        sensor = <&trackball_pim447>;
-        binding = <&kp MB1>;  // Map to mouse button 1 (left click)
-        #binding-cells = <0>;
 
-    };
   };
 
   /*combos {
@@ -228,6 +238,7 @@
    &kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
    &hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
                                      &lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
+                &mmv &pim447 &mmv MOVE_UP
       >;
     };
 
