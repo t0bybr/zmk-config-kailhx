@@ -198,7 +198,6 @@
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
         };
-    };
 
 
   };
