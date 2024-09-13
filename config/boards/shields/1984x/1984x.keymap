@@ -190,7 +190,7 @@
 
     default_layer {
       bindings = <
-   &kp Q        &kp W        &kp F        &kp P        &kp B                &kp J        &kp L        &kp U        &kp Y        &bspc_colon
+   &kp Q        &kp W        &kp F        &kp P        &kp B                &kp J        &kp L        &kp U        &kp Y        &bt_clear_bonds
    &kp A        &kp R        &kp S        &kp T        &kp G                &kp M        &kp N        &kp E        &kp I        &kp O
    &kp Z        &kp X        &hm LSFT C   &kp D        &kp V                &kp K        &kp H        &kp COMMA    &kp DOT      &hmt RCTRL FSLH
                             &mt LALT BSPC &mt LGUI ESC &lhp NUM TAB         &mo MOUSE    &mo NAV      &mt RSFT RET
