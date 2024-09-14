@@ -449,7 +449,7 @@
 
 
 &i2c1 {
-    status = "disabled";
+    status = "okay";
 
     compatible = "nordic,nrf-twi";
     pinctrl-0 = <&i2c1_default>;
@@ -462,7 +462,7 @@
         reg = <0x0A>;
         label = "PIM447";
         interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-		status = "disabled";
+		status = "okay";
     };
 
 };
@@ -474,7 +474,7 @@
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
         compatible = "zmk,input-listener";
-        status = "disabled";
+        status = "okay";
 
         
         scale-multiplier = <5>;
