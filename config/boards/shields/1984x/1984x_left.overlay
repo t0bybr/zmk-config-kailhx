@@ -17,10 +17,11 @@
         ;
 };
 
-
-chosen {
-    zephyr,display = &oled;
-};
+/ {
+    chosen {
+        zephyr,display = &oled;
+    };
+}
 
 &pinctrl {
     i2c1_default: i2c1_default {
