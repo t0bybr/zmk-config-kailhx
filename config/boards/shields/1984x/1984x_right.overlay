@@ -457,7 +457,7 @@
         reg = <0x0A>;
         label = "PIM447";
         interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-		status = "okay";
+		status = "disabled";
     };
 
 };
@@ -469,7 +469,7 @@
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
         compatible = "zmk,input-listener";
-        status = "okay";
+        status = "disabled";
 
         
         scale-multiplier = <5>;
