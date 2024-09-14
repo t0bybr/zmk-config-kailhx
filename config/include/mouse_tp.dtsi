@@ -177,6 +177,5 @@
     };
 
 
-    #endif  // MOUSE_PS2_DRIVER_UART
   #endif  // MOUSE_PS2_DT_PRESENT
 #endif  // HAS_MOUSE_TP
