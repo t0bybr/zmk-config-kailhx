@@ -96,7 +96,7 @@
 			mmv: mouse_move {
 				compatible = "zmk,behavior-input-two-axis";
 				#binding-cells = <0>;
-				sensor = <&pim447>;
+				device = <&pim447>;
 				x-input-code = <INPUT_REL_X>;
 				y-input-code = <INPUT_REL_Y>;
 				time-to-max-speed-ms = <300>;
