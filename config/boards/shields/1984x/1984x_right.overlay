@@ -408,11 +408,6 @@
  */
 
 
-// This define can be used in the keymap file to check whether the device tree
-// configs in this file are present to void build errors on the side that does
-// not have the mouse or TP
-#define MOUSE_PS2_DT_PRESENT
-
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
