@@ -11,328 +11,175 @@
 #include <dt-bindings/zmk/mouse.h>
 
 #define DEFAULT 0
-#define NUM     1
-#define NAV     2
-#define APP     3
-#define SYSTEM  4
-#define MOUSE  5
+#define SYMBOL  1
+#define NUM     2
+#define MOUSE   3
+#define NAV     4
 
-&caps_word {
-  continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
-};
 
-&mt {
-  quick-tap-ms = <200>;
-};
+#define HAS_MOUSE_KEYS
+#define HAS_MOUSE_TP
 
-#define str(x) #x
+#ifdef HAS_MOUSE_KEYS
+  #include <dt-bindings/zmk/mouse.h>
+  #include <behaviors/mouse_keys.dtsi>
+#endif  // HAS_MOUSE_KEYS
 
-#define SPACE_NUM(num) \
-	space_num_##num: space_num_##num { \
-	compatible = "zmk,behavior-macro"; \
-	\#binding-cells = <0>; \
-	bindings = <&macro_tap &kp SPACE &kp N##num>; \
-};
+#ifdef HAS_MOUSE_TP
+  // We store the trackpoint settings in a separate file
+  // to make organization a little easier.
+  #include "include/mouse_tp.dtsi"
+#endif  // HAS_MOUSE_TP
 
-#define TMUX_NUM(num) \
-	tmux_num_##num: tmux_num_##num { \
-	compatible = "zmk,behavior-macro"; \
-	\#binding-cells = <0>; \
-	bindings = <&macro_press &kp LCTRL> \
-			, <&macro_tap &kp S> \
-			, <&macro_release &kp LCTRL> \
-			, <&macro_tap &kp N##num>; \
-};
+#ifdef HAS_MOUSE_KEYS
+  #define U_THUMB_INNER &mo MOUSE_KEYS
+#else
+  #define U_THUMB_INNER &none
+#endif  // HAS_MOUSE_KEYS
+
+#ifdef HAS_MOUSE_TP
+  #define U_TOG_TP_SET &tog MOUSE_TP_SET
+#else
+  #define U_TOG_TP_SET &none
+#endif  // HAS_MOUSE_TP
 
 / {
+    behaviors {
+        hml: homerow_mods_left {
+             compatible = "zmk,behavior-hold-tap";
+             flavor = "balanced";
+             tapping-term-ms = <280>;
+             #binding-cells = <2>;
+             quick-tap-ms = <175>;                // repeat on tap-into-hold
+             require-prior-idle-ms = <150>;
+             bindings = <&kp>, <&kp>;
+             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 35>;
+             hold-trigger-on-release;             // delay positional check until key-release
+        };
+        hmr: homerow_mods_right {
+             compatible = "zmk,behavior-hold-tap";
+             flavor = "balanced";
+             tapping-term-ms = <280>;
+             #binding-cells = <2>;
+             quick-tap-ms = <175>;                // repeat on tap-into-hold
+             require-prior-idle-ms = <150>;
+             bindings = <&kp>, <&kp>;
+             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32>;
+             hold-trigger-on-release;             // delay positional check until key-release
+        };
+        hold: hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <135>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
 
-	
-	#ifdef CONFIG_RIGHT
+    combos {
+        compatible = "zmk,combos";
+    };
+    macros {
+      symbol: symbol {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl SYMBOL>, <&to SYMBOL>;
+       };
+       hmld: hmld {
+          compatible = "zmk,behavior-macro-two-param";
+          wait-ms = <0>;
+          tap-ms = <0>;
+          #binding-cells = <2>;
+          bindings
+              = <&macro_press &to DEFAULT>
+              , <&macro_param_1to1>
+              , <&macro_param_2to2>
+              , <&macro_press &hml MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
+              , <&macro_pause_for_release>
+              , <&macro_param_1to1>
+              , <&macro_param_2to2>
+              , <&macro_release &hml MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
+              ;
+       };
+       hmrd: hmrd {
+          compatible = "zmk,behavior-macro-two-param";
+          wait-ms = <0>;
+          tap-ms = <0>;
+          #binding-cells = <2>;
+          bindings
+              = <&macro_press &to DEFAULT>
+              , <&macro_param_1to1>
+              , <&macro_param_2to2>
+              , <&macro_press &hmr MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
+              , <&macro_pause_for_release>
+              , <&macro_param_1to1>
+              , <&macro_param_2to2>
+              , <&macro_release &hmr MACRO_PLACEHOLDER MACRO_PLACEHOLDER>
+              ;
+       };
+       def: def {
+          compatible = "zmk,behavior-macro-one-param";
+          wait-ms = <0>;
+          tap-ms = <0>;
+          #binding-cells = <1>;
+          bindings
+              = <&macro_param_1to1>
+              , <&macro_tap &kp MACRO_PLACEHOLDER>
+              , <&macro_tap &to DEFAULT>
+              ;
+       };
+    };
 
-		&mmv_input_listener {
-			scale-multiplier = <5>;
-			scale-divisor = <3>;
-		};
+    keymap {
+        compatible = "zmk,keymap";
 
-		&pinctrl {
-			i2c1_default: i2c1_default {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
-							<NRF_PSEL(TWIM_SCL, 0, 3)>;
-					bias-pull-up;
-				};
-			};
+        default {
+            bindings = <
+    &kp  Q      &kp  W       &kp  E       &kp  R           &kp T           &kp Y       &kp  U       &kp  I       &kp  O       &kp P
+    &hml LGUI A &hml LALT S  &hml LCTRL D &hml LSHFT F     &kp G           &kp H       &hmr LSHFT J &hmr LCTRL K &hmr LALT L  &hmr LGUI SEMI 
+    &kp  Z      &kp  X       &kp C        &kp  V           &kp B           &kp N       &kp  M       &kp  COMMA   &kp  DOT     &kp FSLH
+                             &kp ESC      &lt NAV SPACE    &kp TAB        &kp BSPC     &kp  RET     &symbol
+            >;
+        };
 
-			i2c1_sleep: i2c1_sleep {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
-							<NRF_PSEL(TWIM_SCL, 0, 3)>;
-					low-power-enable;
-				};
-			};
-		};
+        symbol {
+            bindings = <
+    &none         &none     &kp GRAVE    &kp PRCNT      &kp HASH        &kp AMPS    &kp  LBKT    &kp  RBKT    &kp CARET    &kp SQT
+    &kp EXCL      &kp AT    &kp EQUAL    &kp MINUS      &kp UNDER       &kp LT      &kp  LPAR    &kp  RPAR    &kp PIPE     &kp GT       
+    &none         &kp BSLH  &kp PLUS     &kp STAR       &kp TILDE       &kp EXCL    &kp  LBRC    &kp  RBRC    &kp DLLR     &kp DQT
+                            &def ESC     &to NUM        &trans          &trans      &trans       &to  DEFAULT 
+            >;
+        };
 
-		&i2c1 {
-			status = "okay";
+        num {
+            bindings = <
+    &kp N1     &def W        &kp  N4        &def R           &def T           &def Y        &def U           &kp  N8          &kp  N9        &def P
+    &kp N2     &kp N3        &hmld LCTRL D  &hmld LSHIFT F   &def G           &def H        &hmrd LSHIFT J   &hmrd LCTRL K    &hmrd LALT L   &kp N0       
+    &def Z     &def X        &def C         &kp  N5          &def B           &kp  N6       &kp  N7          &kp  COMMA       &def DOT       &def FSLH
+                             &def ESC    &def SPACE       &trans              &trans        &def RET         &to DEFAULT 
+            >;
+        };
 
-			compatible = "nordic,nrf-twi";
-			pinctrl-0 = <&i2c1_default>;
-			pinctrl-1 = <&i2c1_sleep>;
-			pinctrl-names = "default", "sleep";
-			clock-frequency = <I2C_BITRATE_FAST>;
+        mouse {
+            bindings = <
+    &def  Q        &def  W         &def  E         &def R            &def T           &def Y       &def  U           &def  I          &def  O       &def P
+    &hmld LGUI A   &hmld LALT S    &hmld LCTRL D   &hmld LSHIFT F    &def G           &def H       &hmrd LSHIFT J    &hmrd LALT K     &hmrd LALT L  &hmrd LGUI SQT
+    &def  Z        &def  X         &def  C         &def V            &def B           &def N       &def  M           &def  COMMA      &def  DOT     &def FSLH
+                                   &to DEFAULT     &lt NAV SPACE     &trans           &mkp MCLK      &mkp LCLK         &mkp RCLK 
+            >;
+        };
 
-			pim447: pim447@0a {
-					compatible = "pimoroni,pim447";
-					reg = <0x0A>;
-					label = "PIM447";
-					#address-cells = <1>;
-					#size-cells = <0>;
-				interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-			};
-		};
-
-		behaviors {
-
-			mmv: mouse_move {
-				compatible = "zmk,behavior-input-two-axis";
-				#binding-cells = <0>;
-				device = <&pim447>;
-				x-input-code = <INPUT_REL_X>;
-				y-input-code = <INPUT_REL_Y>;
-				time-to-max-speed-ms = <300>;
-				acceleration-exponent = <1>;
-			};
-		};
-	#endif
-
-	#ifdef CONFIG_LEFT
-
-		chosen {
-			zephyr,display = &oled;
-		};
-
-		&pinctrl {
-			i2c1_default: i2c1_default {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 9)>,
-							<NRF_PSEL(TWIM_SCL, 0, 10)>;
-					bias-pull-up;
-				};
-			};
-
-			i2c1_sleep: i2c1_sleep {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 9)>,
-							<NRF_PSEL(TWIM_SCL, 0, 10)>;
-					low-power-enable;
-					bias-pull-up;
-				};
-			};
-		};
-
-		&i2c1 {
-			status = "okay";
-
-			compatible = "nordic,nrf-twi";
-			pinctrl-0 = <&i2c1_default>;
-			pinctrl-1 = <&i2c1_sleep>;
-			pinctrl-names = "default", "sleep";
-			clock-frequency = <100000>;
-			oled: ssd1306@3c {
-				compatible = "solomon,ssd1306fb";
-				reg = <0x3c>;
-				label = "DISPLAY";
-				width = <128>;
-				height = <32>;
-				segment-offset = <0>;
-				page-offset = <0>;
-				display-offset = <0>;
-				multiplex-ratio = <31>;
-				segment-remap;
-				com-invdir;
-				inversion-on;
-				com-sequential;
-				prechargep = <0x22>;
-			};
-		};
-	#endif
-
-	macros {
-		SPACE_NUM(0)
-		SPACE_NUM(1)
-		SPACE_NUM(2)
-		SPACE_NUM(3)
-		SPACE_NUM(4)
-		SPACE_NUM(5)
-		SPACE_NUM(6)
-		SPACE_NUM(7)
-		SPACE_NUM(8)
-		SPACE_NUM(9)
-
-		TMUX_NUM(0)
-		TMUX_NUM(1)
-		TMUX_NUM(2)
-		TMUX_NUM(3)
-		TMUX_NUM(4)
-		TMUX_NUM(5)
-		TMUX_NUM(6)
-		TMUX_NUM(7)
-		TMUX_NUM(8)
-		TMUX_NUM(9)
-	};
-
-	conditional_layers {
-		compatible = "zmk,conditional-layers";
-		tri_layer {
-			if-layers = <NUM NAV>;
-			then-layer = <APP>;
-		};
-	};
-
-	behaviors {
-		lalt_gresc: grave_escape {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&mt LALT ESC>, <&kp GRAVE>;
-			mods = <(MOD_LGUI)>;
-			keep-mods = <(MOD_LGUI)>;
-		};
-
-		vol_up: vol_up {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp C_VOL_UP>, <&kp C_BRI_UP>;
-			mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT|MOD_LALT|MOD_RALT)>;
-		};
-
-		vol_dn: vol_dn {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp C_VOL_DN>, <&kp C_BRI_DN>;
-			mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT|MOD_LALT|MOD_RALT)>;
-		};
-
-		hm: homerow_mods {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-			tapping-term-ms = <250>;
-			quick-tap-ms = <200>;
-			flavor = "tap-preferred";
-			bindings = <&kp>, <&kp>;
-		};
-
-		sftent: sftent {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			quick-tap-ms = <75>;
-			flavor = "hold-preferred";
-			bindings = <&kp>, <&kp>;
-		};
-
-		hmt: homerow_mods_no_quicktap {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-			tapping-term-ms = <200>;
-			quick-tap-ms = <75>;
-			require-prior-idle-ms = <50>;
-			flavor = "hold-preferred";
-			bindings = <&kp>, <&kp>;
-		};
-
-		lhp: layer_hold_prefered {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			flavor = "hold-preferred";
-			bindings = <&mo>, <&kp>;
-		};
-
-		nav_caps: nav_caps {
-			compatible = "zmk,behavior-tap-dance";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
-		};
-
-  	};
-
-  /*combos {
-	compatible = "zmk,combos";
-
-	#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
-	  combo_##NAME { \
-		bindings = <BINDINGS>; \
-		key-positions = <KEYPOS>; \
-		layers = <LAYERS>; \
-	  };
-
-	//  ╭─────────────────────╮          ╭─────────────────────╮
-	//  │   0   1   2   3   4 │          │  5   6   7   8  10  │
-	//  │  11  12  13  14  15 │          │ 15  16  17  18  19  │
-	//  │  20  21  22  23  24 ╰───╮  ╭───╯ 25  26  27  28  29  │
-	//  ╰────────────╮ 30  31  32 │  │ 33  34  35 ╭────────────╯
-	//               ╰────────────╯  ╰────────────╯
-
-	// COMBO(caps_word, &caps_word, 30 33, DEFAULT)
-  };*/
-
-	keymap {
-		compatible = "zmk,keymap";
-
-		default_layer {
-			bindings = <
-				&kp Q            &kp W            &kp F            &kp P            &kp B                    &kp J            &kp L            &kp U            &kp Y            &bt BT_CLR
-				&kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
-				&hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
-													&lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
-			>;
-		};
-
-		num_layer {
-			bindings = <
-				&kp N1           &kp N2           &kp N3           &kp N4           &kp N5                   &kp N6           &kp N7           &kp N8           &kp N9           &kp N0
-				&kp TILDE        &kp AMPS         &kp LPAR         &kp LBRC         &kp LBKT                 &kp PLUS         &kp MINUS        &kp SEMI         &kp STAR         &kp EXCL
-				&hm LCTRL GRAVE  &hm LSFT PIPE    &kp RPAR         &kp RBRC         &kp RBKT                 &kp EQUAL        &kp UNDER        &kp COLON        &hm RGUI DLLR    &hmt RCTRL BSLH
-													&mo SYSTEM       &trans           &trans                   &trans           &trans           &trans
-			>;
-		};
-
-		nav_layer {
-			bindings = <
-				&none            &none            &none            &none            &none                    &vol_dn          &vol_up          &kp C_PP         &none            &kp DEL
-				&none            &none            &none            &none            &none                    &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp PG_UP
-				&kp LCTRL        &kp LSFT         &none            &none            &none                    &kp HOME         &kp END          &kp K_APP        &kp INS          &kp PG_DN
-													&kp LALT         &trans           &mt LGUI LA(BSPC)        &trans           &trans           &mo SYSTEM
-			>;
-		};
-
-		app_layer {
-			bindings = <
-				&space_num_1     &space_num_2     &space_num_3     &space_num_4     &space_num_5             &space_num_6     &space_num_7     &space_num_8     &space_num_9     &space_num_0
-				&tmux_num_1      &tmux_num_2      &tmux_num_3      &tmux_num_4      &tmux_num_5              &tmux_num_6      &tmux_num_7      &tmux_num_8      &tmux_num_9      &tmux_num_0
-				&none            &none            &none            &none            &none                    &none            &none            &none            &none            &none
-				//&kp F1           &kp F2           &kp F3           &kp F4           &kp F5                   &kp F6           &kp F7           &kp F8           &kp F9           &kp F10
-													&trans           &none            &none                    &none            &none            &none
-			>;
-		};
-
-		mouse_layer {
-			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &mmv                  &none                &none            &none            &ext_power EP_ON
-				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none            &none            &none            &none            &ext_power EP_OFF
-				&none            &none            &none            &none            &bt BT_CLR               &none            &none            &none            &none            &none
-													&trans           &none            &none                    &none            &none            &none
-			>;
-		};
-
-		system_layer {
-			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &none            &none            &none            &none            &ext_power EP_ON
-				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none            &none            &none            &none            &ext_power EP_OFF
-				&none            &none            &none            &none            &bt BT_CLR               &none            &none            &none            &none            &none
-													&trans           &none            &none                    &none            &none            &none
-			>;
-		};
-	};
+        nav {
+            bindings = <
+    U_MSS_TP_S_I  U_MSS_TP_V6_I  U_MSS_TP_NI_I        &kp  R           &kp T           &kp Y       &msc  SCRL_UP      &kp  I       &kp  O       &kp P
+    U_MSS_TP_S_D  U_MSS_TP_V6_D  U_MSS_TP_NI_D        &kp F            &kp G           &kp LEFT    &kp   DOWN         &kp  UP      &kp  RIGHT   &hmr LGUI SQT
+    U_MSS_RESET   &kp  X         &kp C                &kp  V           &kp B           &kp N       &msc  SCRL_DOWN    &kp  COMMA   &kp  DOT     &kp FSLH
+                                 &to DEFAULT          &trans           &trans          &mkp MB4    &mkp  MB5          &to DEFAULT
+            >;
+        };
+    };
 };
+
+

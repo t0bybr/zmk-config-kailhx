@@ -4,6 +4,7 @@ name: 1984x
 type: shield
 url: https://github.com/dilshod/36-choc-key-ortholinear-split
 requires: [seeed_xiao]
+exposes: [i2c_oled]
 features:
   - keys
   - pointer
