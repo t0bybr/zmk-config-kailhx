@@ -1,5 +1,8 @@
 #include "1984x.dtsi"
 
+#define HAS_MOUSE_KEYS
+#define HAS_MOUSE_TP
+
 
 &default_transform {
     col-offset = <5>;

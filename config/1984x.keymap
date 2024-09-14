@@ -17,8 +17,7 @@
 #define NAV     4
 
 
-#define HAS_MOUSE_KEYS
-#define HAS_MOUSE_TP
+
 
 #ifdef HAS_MOUSE_KEYS
   #include <dt-bindings/zmk/mouse.h>
