@@ -144,6 +144,7 @@
 
         };
 
+
         symbol {
             bindings = <
     &none         &none     &kp GRAVE    &kp PRCNT      &kp HASH        &kp AMPS    &kp  LBKT    &kp  RBKT    &kp CARET    &kp SQT
