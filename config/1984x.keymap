@@ -142,7 +142,6 @@
     &kp  Z      &kp  X       &kp C        &kp  V           &kp B           &kp N       &kp  M       &kp  COMMA   &kp  DOT     &kp FSLH
                              &kp ESC      &lt NAV SPACE    &kp TAB        &kp BSPC     &kp  RET     &symbol
 			>;
-			sensor-bindings = <&mouse_ps2>;
 
         };
 

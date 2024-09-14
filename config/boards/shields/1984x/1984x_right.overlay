@@ -458,7 +458,6 @@
         label = "PIM447";
         interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 		status = "disabled";
-        #sensor-binding-cells = <1>;
     };
 
 };
