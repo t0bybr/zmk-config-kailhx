@@ -47,53 +47,53 @@
 
 	
 
-		&mmv_input_listener {
-			scale-multiplier = <5>;
-			scale-divisor = <3>;
+&mmv_input_listener {
+	scale-multiplier = <5>;
+	scale-divisor = <3>;
+};
+
+&pinctrl {
+	i2c1_default: i2c1_default {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
+					<NRF_PSEL(TWIM_SCL, 0, 3)>;
+			bias-pull-up;
 		};
+	};
 
-		&pinctrl {
-			i2c1_default: i2c1_default {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
-							<NRF_PSEL(TWIM_SCL, 0, 3)>;
-					bias-pull-up;
-				};
-			};
-
-			i2c1_sleep: i2c1_sleep {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
-							<NRF_PSEL(TWIM_SCL, 0, 3)>;
-					low-power-enable;
-				};
-			};
+	i2c1_sleep: i2c1_sleep {
+		group1 {
+			psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
+					<NRF_PSEL(TWIM_SCL, 0, 3)>;
+			low-power-enable;
 		};
+	};
+};
 
-		&i2c1 {
-			status = "okay";
+&i2c1 {
+	status = "okay";
 
-			compatible = "nordic,nrf-twi";
-			pinctrl-0 = <&i2c1_default>;
-			pinctrl-1 = <&i2c1_sleep>;
-			pinctrl-names = "default", "sleep";
-			clock-frequency = <I2C_BITRATE_FAST>;
+	compatible = "nordic,nrf-twi";
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-1 = <&i2c1_sleep>;
+	pinctrl-names = "default", "sleep";
+	clock-frequency = <I2C_BITRATE_FAST>;
 
-			pim447: pim447@0a {
-				compatible = "pimoroni,pim447";
-				reg = <0x0A>;
-				label = "PIM447";
-				interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-				status = "okay";
-			};
-		};
+	pim447: pim447@0a {
+		compatible = "pimoroni,pim447";
+		reg = <0x0A>;
+		label = "PIM447";
+		interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		status = "okay";
+	};
+};
 / {
 
 		behaviors {
 
 			mmv: mouse_move {
 				compatible = "zmk,behavior-input-two-axis";
-				#binding-cells = <0>;
+				#binding-cells = <1>;
 				device = <&pim447>;
 				x-input-code = <INPUT_REL_X>;
 				y-input-code = <INPUT_REL_Y>;
