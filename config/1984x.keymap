@@ -47,7 +47,6 @@
 / {
 
 	
-	#ifdef CONFIG_RIGHT
 
 		&mmv_input_listener {
 			scale-multiplier = <5>;
@@ -102,7 +101,7 @@
 				acceleration-exponent = <1>;
 			};
 		};
-	#endif
+	
 
 	#ifdef CONFIG_LEFT
 
