@@ -68,7 +68,6 @@
 
   // Only apply these settings on the side that has the TP connected
   // (usually the right side)
-  #ifdef MOUSE_PS2_DT_PRESENT
 
    /*
     * Input Listener Config
@@ -177,5 +176,4 @@
     };
 
 
-  #endif  // MOUSE_PS2_DT_PRESENT
 #endif  // HAS_MOUSE_TP
