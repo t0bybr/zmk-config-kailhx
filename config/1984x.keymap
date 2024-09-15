@@ -13,10 +13,7 @@
 #include <dt-bindings/zmk/mouse.h>
 
 
-&mmv_input_listener {
-    scale-multiplier = <5>;
-    scale-divisor = <3>;
-};
+
 
 #define DEFAULT 0
 #define NUM     1
