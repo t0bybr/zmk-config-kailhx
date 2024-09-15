@@ -50,70 +50,7 @@
 
 / {
 
-		behaviors {
 
-			mmv: mouse_move {
-				compatible = "zmk,behavior-input-two-axis";
-				#binding-cells = <1>;
-				x-input-code = <INPUT_REL_X>;
-				y-input-code = <INPUT_REL_Y>;
-				time-to-max-speed-ms = <300>;
-				acceleration-exponent = <1>;
-			};
-		};
-	
-
-	#ifdef CONFIG_LEFT
-
-		chosen {
-			zephyr,display = &oled;
-		};
-
-		&pinctrl {
-			i2c1_default: i2c1_default {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 9)>,
-							<NRF_PSEL(TWIM_SCL, 0, 10)>;
-					bias-pull-up;
-				};
-			};
-
-			i2c1_sleep: i2c1_sleep {
-				group1 {
-					psels = <NRF_PSEL(TWIM_SDA, 0, 9)>,
-							<NRF_PSEL(TWIM_SCL, 0, 10)>;
-					low-power-enable;
-					bias-pull-up;
-				};
-			};
-		};
-
-		&i2c1 {
-			status = "okay";
-
-			compatible = "nordic,nrf-twi";
-			pinctrl-0 = <&i2c1_default>;
-			pinctrl-1 = <&i2c1_sleep>;
-			pinctrl-names = "default", "sleep";
-			clock-frequency = <100000>;
-			oled: ssd1306@3c {
-				compatible = "solomon,ssd1306fb";
-				reg = <0x3c>;
-				label = "DISPLAY";
-				width = <128>;
-				height = <32>;
-				segment-offset = <0>;
-				page-offset = <0>;
-				display-offset = <0>;
-				multiplex-ratio = <31>;
-				segment-remap;
-				com-invdir;
-				inversion-on;
-				com-sequential;
-				prechargep = <0x22>;
-			};
-		};
-	#endif
 
 	macros {
 		SPACE_NUM(0)
@@ -148,6 +85,16 @@
 	};
 
 	behaviors {
+
+		mmv: mouse_move {
+			compatible = "zmk,behavior-input-two-axis";
+			#binding-cells = <1>;
+			x-input-code = <INPUT_REL_X>;
+			y-input-code = <INPUT_REL_Y>;
+			time-to-max-speed-ms = <300>;
+			acceleration-exponent = <1>;
+		};
+		
 		lalt_gresc: grave_escape {
 			compatible = "zmk,behavior-mod-morph";
 			#binding-cells = <0>;
