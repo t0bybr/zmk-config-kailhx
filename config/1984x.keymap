@@ -45,6 +45,12 @@
 };
 
 
+
+&pim447 {
+    status = "okay";
+}
+
+
 	
 
 
@@ -94,7 +100,7 @@
 			time-to-max-speed-ms = <300>;
 			acceleration-exponent = <1>;
 		};
-		
+
 		lalt_gresc: grave_escape {
 			compatible = "zmk,behavior-mod-morph";
 			#binding-cells = <0>;
