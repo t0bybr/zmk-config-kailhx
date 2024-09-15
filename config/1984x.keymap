@@ -15,7 +15,7 @@
 #define NAV     2
 #define APP     3
 #define SYSTEM  4
-#define MOUSE  5
+#define MOUSE  	5
 
 &caps_word {
   continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
@@ -82,12 +82,11 @@
 			clock-frequency = <I2C_BITRATE_FAST>;
 
 			pim447: pim447@0a {
-					compatible = "pimoroni,pim447";
-					reg = <0x0A>;
-					label = "PIM447";
-					#address-cells = <1>;
-					#size-cells = <0>;
+				compatible = "pimoroni,pim447";
+				reg = <0x0A>;
+				label = "PIM447";
 				interrupt-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+				status = "okay";
 			};
 		};
 
