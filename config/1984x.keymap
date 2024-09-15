@@ -47,10 +47,6 @@
 
 	
 
-&mmv_input_listener {
-	scale-multiplier = <5>;
-	scale-divisor = <3>;
-};
 
 / {
 
@@ -247,7 +243,7 @@
 				&kp Q            &kp W            &kp F            &kp P            &kp B                    &kp J            &kp L            &kp U            &kp Y            &bt BT_CLR
 				&kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
 				&hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
-													&lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
+					&mmv								&lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
 			>;
 		};
 
