@@ -44,7 +44,6 @@
 			, <&macro_tap &kp N##num>; \
 };
 
-/ {
 
 	
 
@@ -88,6 +87,7 @@
 				status = "okay";
 			};
 		};
+/ {
 
 		behaviors {
 
