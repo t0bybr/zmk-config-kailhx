@@ -5,11 +5,18 @@
  */
 
 #include <behaviors.dtsi>
+#include <behaviors/mouse_move.dtsi>
+
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/mouse.h>
 
 
+&mmv_input_listener {
+    scale-multiplier = <5>;
+    scale-divisor = <3>;
+};
 
 #define DEFAULT 0
 #define NUM     1
@@ -169,7 +176,7 @@
 
     default_layer {
       bindings = <
-   &kp Q            &kp W            &kp F            &kp P            &kp B                    &kp J            &kp L            &kp U            &kp Y            &kp SQT
+   &kp Q            &kp W            &kp F            &kp P            &kp B                    &kp J            &kp L            &kp U            &kp Y            &mmv MOVE_LEFT //&kp SQT
    &kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
    &hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
                                      &lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &kp SPACE        &nav_caps        &sftent RSFT RET
