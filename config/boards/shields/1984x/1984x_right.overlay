@@ -465,12 +465,11 @@
 
 };
 
-&mouse_ps2 {
-    status = "okay";
-};
 
 / {
-
+    &mouse_ps2 {
+        status = "okay";
+    };
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
         compatible = "zmk,input-listener";
