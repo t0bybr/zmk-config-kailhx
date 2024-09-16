@@ -43,7 +43,6 @@ manifest:
     - name: pim447
       remote: t0bybr
       revision: main
-      path: modules/pim447
 
 
   self:
