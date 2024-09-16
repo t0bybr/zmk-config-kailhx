@@ -1,11 +1,12 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/t0bybr
+      # url-base: https://github.com/t0bybr
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: pr2477
+      revision: experimental
       import: app/west.yml
     # - name: miryoku
     #   url: https://github.com/t0bybr/miryoku_zmk.git
