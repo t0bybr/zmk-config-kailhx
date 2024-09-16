@@ -13,6 +13,7 @@
 #define NUM     1
 #define NAV     2
 #define APP     3
+#define SYSTEM  7
 #define MOUSE  	5
 
 #define DEF 0 // default layer
