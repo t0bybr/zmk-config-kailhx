@@ -1,16 +1,50 @@
+# manifest:
+#   remotes:
+#     - name: zmkfirmware
+#       # url-base: https://github.com/t0bybr
+#       url-base: https://github.com/urob
+#   projects:
+#     - name: zmk
+#       remote: zmkfirmware
+#       revision: main
+#       import: app/west.yml
+#     # - name: miryoku
+#     #   url: https://github.com/t0bybr/miryoku_zmk.git
+#     #   revision: master
+#     #   path: miryoku_zmk
+#   self:
+#     path: config
+
+
 manifest:
   remotes:
-    - name: zmkfirmware
-      # url-base: https://github.com/t0bybr
-      url-base: https://github.com/zmkfirmware
+    - name: urob
+      url-base: https://github.com/urob
+    - name: t0bybr
+      url-base: https://github.com/t0bybr
+
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: caksyolar/experimental
+      remote: urob
+      revision: main
       import: app/west.yml
-    # - name: miryoku
-    #   url: https://github.com/t0bybr/miryoku_zmk.git
-    #   revision: master
-    #   path: miryoku_zmk
+    - name: zmk-helpers
+      remote: urob
+      revision: main
+      path: modules/helpers
+    - name: zmk-auto-layer
+      remote: urob
+      revision: main
+      path: modules/auto-layer
+    - name: zmk-tri-state
+      remote: urob
+      revision: main
+      path: modules/tri-state
+    - name: pim447
+      remote: t0bybr
+      revision: main
+      path: modules/pim447
+
+
   self:
     path: config
