@@ -10,12 +10,14 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#define DEFAULT 0
 #define NUM     1
 #define NAV     2
 #define APP     3
-#define SYSTEM  4
 #define MOUSE  	5
+
+#define DEF 0 // default layer
+#define MSK 4 // mouse key layer
+#define MSC 6 // mouse scroll layer
 
 &caps_word {
   continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
