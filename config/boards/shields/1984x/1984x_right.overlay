@@ -56,3 +56,10 @@
     };
 };
 
+/ {
+    chosen {
+        zmk,pointing-device = &pim447;
+    };
+};
+
+
