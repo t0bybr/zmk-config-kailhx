@@ -60,6 +60,9 @@
 		compatible = "zmk,input-listener";
 		device = <&pim447>;
 	    xy-swap;
+        y-invert;
+        	scale-multiplier = <5>;
+	scale-divisor = <3>;
 
 	};
 };
