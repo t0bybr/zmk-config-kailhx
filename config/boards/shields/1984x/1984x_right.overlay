@@ -61,9 +61,8 @@
 		device = <&pim447>;
 	    xy-swap;
         y-invert;
-        	scale-multiplier = <5>;
-	scale-divisor = <3>;
-
+        scale-multiplier = <10>;
+	    scale-divisor = <3>;
 	};
 };
 
