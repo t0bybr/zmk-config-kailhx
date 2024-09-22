@@ -160,7 +160,7 @@
 			x-input-code = <INPUT_REL_X>;
 			y-input-code = <INPUT_REL_Y>;
 			time-to-max-speed-ms = <300>;
-			acceleration-exponent = <1>;
+			acceleration-exponent = <2>;
 		};
   	};
 
@@ -189,11 +189,6 @@
         device = <&mmv>;
     };
 
-	pim447_listener {
-		compatible = "zmk,input-listener";
-		device = <&pim447>;
-
-	};
 
 
 	keymap {

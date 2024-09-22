@@ -55,4 +55,12 @@
     };
 };
 
+/ {
+	pim447_listener {
+		compatible = "zmk,input-listener";
+		device = <&pim447>;
+
+	};
+};
+
 
