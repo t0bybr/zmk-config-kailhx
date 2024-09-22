@@ -189,6 +189,11 @@
         device = <&mmv>;
     };
 
+	pim447_listener {
+		compatible = "zmk,input-listener";
+		device = <&pim447>;
+
+	};
 
 
 	keymap {
