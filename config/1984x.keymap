@@ -185,11 +185,8 @@
         device = <&mmv>;
     };
 
-	&mmv_input_listener {
-		scale-multiplier = <5>;
-		scale-divisor = <3>;
-	};
-	
+
+
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -248,4 +245,9 @@
 			>;
 		};
 	};
+};
+
+&mmv_input_listener {
+	scale-multiplier = <5>;
+	scale-divisor = <3>;
 };
