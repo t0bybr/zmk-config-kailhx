@@ -1,5 +1,9 @@
-#include "1984x.dtsi"
+#include <dt-bindings/input/input.h>
+#include <behaviors/mouse_keys.dtsi>
+#include <behaviors/mouse_move.dtsi>
+#include <dt-bindings/zmk/mouse.h>
 
+#include "1984x.dtsi"
 
 &default_transform {
     col-offset = <5>;
@@ -56,14 +60,6 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
     };
-};
-
-/ {
-    chosen {
-        zmk,pointing-device = &pim447;
-    };
-
-
 };
 
 
