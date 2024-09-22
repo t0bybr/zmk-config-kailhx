@@ -75,13 +75,18 @@
         };
     };
 
+    mkp_input_listener: mkp_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&pim447>;
+    };
+
 	pim447_listener {
 		compatible = "zmk,input-listener";
 		device = <&pim447>;
 	    xy-swap;
         y-invert;
         scale-multiplier = <10>;
-	    scale-divisor = <10>;
+	    scale-divisor = <30>;
 	};
 };
 
