@@ -1,5 +1,4 @@
 #include "1984x.dtsi"
-#include <behaviors/mouse_keys.dtsi>
 
 
 &default_transform {
