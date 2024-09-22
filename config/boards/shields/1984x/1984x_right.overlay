@@ -64,6 +64,17 @@
 };
 
 / {
+    behaviors {
+        mmv: mouse_move {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_X>;
+            y-input-code = <INPUT_REL_Y>;
+            time-to-max-speed-ms = <700>;
+            acceleration-exponent = <2>;
+        };
+    };
+
 	pim447_listener {
 		compatible = "zmk,input-listener";
 		device = <&pim447>;
@@ -71,8 +82,6 @@
         y-invert;
         scale-multiplier = <10>;
 	    scale-divisor = <3>;
-        acceleration-exponent = <2>;
-        time-to-max-speed-ms = <500>;
 	};
 };
 
