@@ -150,7 +150,6 @@
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
 
-		behaviors {
 			mmv: mouse_move {
 				compatible = "zmk,behavior-input-two-axis";
 				#binding-cells = <1>;
@@ -159,17 +158,11 @@
 				time-to-max-speed-ms = <300>;
 				acceleration-exponent = <1>;
 			};
-		};
 
 
 
 
   	};
-
-mmv_input_listener: mmv_input_listener {
-    compatible = "zmk,input-listener";
-    device = <&pim447>;
-};
 
   /*combos {
 	compatible = "zmk,combos";

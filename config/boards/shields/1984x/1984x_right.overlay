@@ -56,6 +56,13 @@
     };
 };
 
+
+mmv_input_listener: mmv_input_listener {
+    compatible = "zmk,input-listener";
+    device = <&pim447>;
+};
+
+
 / {
     chosen {
         zmk,pointing-device = &pim447;
