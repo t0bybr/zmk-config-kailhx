@@ -259,4 +259,6 @@
 &mmv_input_listener {
 	scale-multiplier = <5>;
 	scale-divisor = <3>;
+	xy-swap;
+
 };
