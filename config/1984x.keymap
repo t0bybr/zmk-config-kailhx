@@ -155,7 +155,7 @@
         inc_scale_divisor_max: inc_scale_divisor_max {
             compatible = "zmk,behavior-adjust-variable";
             label = "Increase Scale Divisor Max";
-            binding-mode = "press";
+            bindings = <&kp>;
 			#binding-cells = <0>;
         };
 
@@ -164,7 +164,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Decrease Scale Divisor Max";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
 
         /* Increase scale_divisor_min */
@@ -172,7 +172,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Increase Scale Divisor Min";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
 
         /* Decrease scale_divisor_min */
@@ -180,7 +180,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Decrease Scale Divisor Min";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
 
         /* Increase speed_min */
@@ -188,7 +188,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Increase Speed Min";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
 
         /* Decrease speed_min */
@@ -196,7 +196,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Decrease Speed Min";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
 
         /* Increase speed_max */
@@ -204,7 +204,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Increase Speed Max";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
 
         /* Decrease speed_max */
@@ -212,7 +212,7 @@
             compatible = "zmk,behavior-adjust-variable";
             label = "Decrease Speed Max";
 			#binding-cells = <0>;
-            binding-mode = "press";
+            bindings = <&kp>;
         };
   	};
 
