@@ -150,6 +150,62 @@
 			tapping-term-ms = <200>;
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
+
+		/* Increase scale_divisor_max */
+        inc_scale_divisor_max: inc_scale_divisor_max {
+            compatible = "zmk,behavior";
+            label = "Increase Scale Divisor Max";
+            binding-mode = "press";
+        };
+
+        /* Decrease scale_divisor_max */
+        dec_scale_divisor_max: dec_scale_divisor_max {
+            compatible = "zmk,behavior";
+            label = "Decrease Scale Divisor Max";
+            binding-mode = "press";
+        };
+
+        /* Increase scale_divisor_min */
+        inc_scale_divisor_min: inc_scale_divisor_min {
+            compatible = "zmk,behavior";
+            label = "Increase Scale Divisor Min";
+            binding-mode = "press";
+        };
+
+        /* Decrease scale_divisor_min */
+        dec_scale_divisor_min: dec_scale_divisor_min {
+            compatible = "zmk,behavior";
+            label = "Decrease Scale Divisor Min";
+            binding-mode = "press";
+        };
+
+        /* Increase speed_min */
+        inc_speed_min: inc_speed_min {
+            compatible = "zmk,behavior";
+            label = "Increase Speed Min";
+            binding-mode = "press";
+        };
+
+        /* Decrease speed_min */
+        dec_speed_min: dec_speed_min {
+            compatible = "zmk,behavior";
+            label = "Decrease Speed Min";
+            binding-mode = "press";
+        };
+
+        /* Increase speed_max */
+        inc_speed_max: inc_speed_max {
+            compatible = "zmk,behavior";
+            label = "Increase Speed Max";
+            binding-mode = "press";
+        };
+
+        /* Decrease speed_max */
+        dec_speed_max: dec_speed_max {
+            compatible = "zmk,behavior";
+            label = "Decrease Speed Max";
+            binding-mode = "press";
+        };
   	};
 
   /*combos {
@@ -216,8 +272,8 @@
 
 		mouse_layer {
 			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &none                 &none                &none            &none            &ext_power EP_ON
-				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none            &none            &none            &none            &ext_power EP_OFF
+				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &inc_speed_min                  &dec_speed_min                &inc_speed_max             &dec_speed_max            &ext_power EP_ON
+				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4             &inc_scale_divisor_max            &dec_scale_divisor_max            &inc_scale_divisor_min             &dec_scale_divisor_min            &ext_power EP_OFF
 				&none            &none            &none            &none            &bt BT_CLR               &bt BT_CLR            &none            &none            &none            &none
 													&trans           &none            &none                    &none            &none            &none
 			>;
