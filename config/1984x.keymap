@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/trackball_actions.h>
 
 
 
@@ -151,68 +152,10 @@
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
 
-		/* Increase scale_divisor_max */
-        inc_scale_divisor_max: inc_scale_divisor_max {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Increase Scale Divisor Max";
-            
-			#binding-cells = <0>;
-        };
-
-        /* Decrease scale_divisor_max */
-        dec_scale_divisor_max: dec_scale_divisor_max {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Decrease Scale Divisor Max";
-			#binding-cells = <0>;
-            
-        };
-
-        /* Increase scale_divisor_min */
-        inc_scale_divisor_min: inc_scale_divisor_min {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Increase Scale Divisor Min";
-			#binding-cells = <0>;
-            
-        };
-
-        /* Decrease scale_divisor_min */
-        dec_scale_divisor_min: dec_scale_divisor_min {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Decrease Scale Divisor Min";
-			#binding-cells = <0>;
-            
-        };
-
-        /* Increase speed_min */
-        inc_speed_min: inc_speed_min {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Increase Speed Min";
-			#binding-cells = <0>;
-            
-        };
-
-        /* Decrease speed_min */
-        dec_speed_min: dec_speed_min {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Decrease Speed Min";
-			#binding-cells = <0>;
-            
-        };
-
-        /* Increase speed_max */
-        inc_speed_max: inc_speed_max {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Increase Speed Max";
-			#binding-cells = <0>;
-            
-        };
-
-        /* Decrease speed_max */
-        dec_speed_max: dec_speed_max {
-            compatible = "zmk,behavior-adjust-variable";
-            label = "Decrease Speed Max";
-			#binding-cells = <0>;
-            
+		tb: trackball_adjust {
+            compatible = "zmk,behavior-trackball-adjust";
+            label = "Trackball Adjust";
+            #binding-cells = <1>;
         };
   	};
 
@@ -243,7 +186,7 @@
 
 		default_layer {
 			bindings = <
-				&kp Q            &kp W            &kp F            &kp P            &kp B                    &inc_speed_min            &kp L            &kp U            &kp Y            &bt BT_CLR
+				&kp Q            &kp W            &kp F            &kp P            &kp B                    &tb TB_INC_SPEED_MIN           &kp L            &kp U            &kp Y            &bt BT_CLR
 				&kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
 				&hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
 													&lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
@@ -280,8 +223,8 @@
 
 		mouse_layer {
 			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &inc_speed_min			&dec_speed_min			&inc_speed_max			&dec_speed_max			&ext_power EP_ON
-				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &inc_scale_divisor_max	&dec_scale_divisor_max	&inc_scale_divisor_min	&dec_scale_divisor_min	&ext_power EP_OFF
+				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &none			&none			&none			&none			&ext_power EP_ON
+				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none	&none	&none	&none	&ext_power EP_OFF
 				&none            &none            &none            &none            &bt BT_CLR               &bt BT_CLR				&none					&none					&none					&none
 													&trans           &none            &none                  &none					&none					&none
 			>;
