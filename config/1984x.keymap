@@ -156,12 +156,14 @@
             compatible = "zmk,behavior";
             label = "Increase Scale Divisor Max";
             binding-mode = "press";
+			#binding-cells = <1>;
         };
 
         /* Decrease scale_divisor_max */
         dec_scale_divisor_max: dec_scale_divisor_max {
             compatible = "zmk,behavior";
             label = "Decrease Scale Divisor Max";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
 
@@ -169,6 +171,7 @@
         inc_scale_divisor_min: inc_scale_divisor_min {
             compatible = "zmk,behavior";
             label = "Increase Scale Divisor Min";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
 
@@ -176,6 +179,7 @@
         dec_scale_divisor_min: dec_scale_divisor_min {
             compatible = "zmk,behavior";
             label = "Decrease Scale Divisor Min";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
 
@@ -183,6 +187,7 @@
         inc_speed_min: inc_speed_min {
             compatible = "zmk,behavior";
             label = "Increase Speed Min";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
 
@@ -190,6 +195,7 @@
         dec_speed_min: dec_speed_min {
             compatible = "zmk,behavior";
             label = "Decrease Speed Min";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
 
@@ -197,6 +203,7 @@
         inc_speed_max: inc_speed_max {
             compatible = "zmk,behavior";
             label = "Increase Speed Max";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
 
@@ -204,6 +211,7 @@
         dec_speed_max: dec_speed_max {
             compatible = "zmk,behavior";
             label = "Decrease Speed Max";
+			#binding-cells = <1>;
             binding-mode = "press";
         };
   	};
