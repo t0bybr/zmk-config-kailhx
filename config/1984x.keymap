@@ -154,7 +154,6 @@
 
 		tb: behavior_trackball_adjust_0  {
             compatible = "zmk,behavior-trackball-adjust";
-            label = "Trackball Adjust";
             #binding-cells = <1>;
         };
   	};
@@ -186,7 +185,7 @@
 
 		default_layer {
 			bindings = <
-				&kp Q            &kp W            &kp F            &kp P            &kp B                    &tb TB_INC_SPEED_MIN           &kp L            &kp U            &kp Y            &bt BT_CLR
+				&kp Q            &kp W            &kp F            &kp P            &kp B                    &kp J           &kp L            &kp U            &kp Y            &bt BT_CLR
 				&kp A            &kp R            &kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I            &kp O
 				&hm LCTRL Z      &hm LSFT X       &kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &hm RGUI DOT     &hmt RCTRL FSLH
 													&lalt_gresc      &lhp NUM TAB     &mt LGUI BSPC            &mo MOUSE        &nav_caps        &sftent RSFT RET
@@ -223,8 +222,8 @@
 
 		mouse_layer {
 			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &none			&none			&none			&none			&ext_power EP_ON
-				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &none	&none	&none	&none	&ext_power EP_OFF
+				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &tb TB_INC_SPEED_MIN			&tb TB_DEC_SPEED_MIN			&tb TB_INC_SPEED_MAX			&tb TB_DEC_SPEED_MAX			&ext_power EP_ON
+				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &tb TB_INC_SCALE_DIV_MIN	&tb TB_DEC_SCALE_DIV_MIN	&tb TB_INC_SCALE_DIV_MAX	&tb TB_DEC_SCALE_DIV_MAX	&ext_power EP_OFF
 				&none            &none            &none            &none            &bt BT_CLR               &bt BT_CLR				&none					&none					&none					&none
 													&trans           &none            &none                  &none					&none					&none
 			>;
