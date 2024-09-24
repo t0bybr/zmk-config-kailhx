@@ -152,7 +152,7 @@
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
 
-		tb: trackball_adjust {
+		tb: behavior_trackball_adjust_0  {
             compatible = "zmk,behavior-trackball-adjust";
             label = "Trackball Adjust";
             #binding-cells = <1>;
