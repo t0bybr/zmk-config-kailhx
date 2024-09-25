@@ -16,10 +16,10 @@
 #define NAV     2
 #define APP     3
 #define SYSTEM  7
-#define MOUSE  	5
+#define MOUSE  	4
 
 #define DEF 0 // default layer
-#define MSK 4 // mouse key layer
+#define MSK 5 // mouse key layer
 #define MSC 6 // mouse scroll layer
 
 &caps_word {
@@ -222,10 +222,10 @@
 
 		mouse_layer {
 			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &tb TB_INC_SPEED_MIN			&tb TB_DEC_SPEED_MIN			&tb TB_INC_SPEED_MAX			&tb TB_DEC_SPEED_MAX			&ext_power EP_ON
+				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &tb TB_INC_SPEED_MIN		&tb TB_DEC_SPEED_MIN		&tb TB_INC_SPEED_MAX		&tb TB_DEC_SPEED_MAX		&ext_power EP_ON
 				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &tb TB_INC_SCALE_DIV_MIN	&tb TB_DEC_SCALE_DIV_MIN	&tb TB_INC_SCALE_DIV_MAX	&tb TB_DEC_SCALE_DIV_MAX	&ext_power EP_OFF
-				&none            &none            &none            &none            &bt BT_CLR               &bt BT_CLR				&none					&none					&none					&none
-													&trans           &none            &none                  &none					&none					&none
+				&none            &none            &none            &none            &bt BT_CLR               &bt BT_CLR					&none						&none						&none						&none
+													&trans           &none            &none                  &none						&none						&none
 			>;
 		};
 
