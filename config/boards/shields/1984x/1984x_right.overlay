@@ -54,7 +54,7 @@
     pinctrl-0 = <&i2c1_default>;
 	pinctrl-1 = <&i2c1_sleep>;
 	pinctrl-names = "default", "sleep";
-	clock-frequency = <400000>;
+	clock-frequency = <100000>;
 
     pim447: pim447@0a {
         compatible = "zephyr,input-device", "pimoroni,pim447";
@@ -70,7 +70,7 @@
             #binding-cells = <1>;
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <700>;
+            time-to-max-speed-ms = <1>;
             acceleration-exponent = <1>;
         };
     };
