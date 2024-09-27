@@ -222,9 +222,9 @@
 
 		mouse_layer {
 			bindings = <
-				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &tb TB_INC_BASE_SCALE		&tb TB_INC_FREQUENCY_THRESHOLD		&none		&none		&ext_power EP_ON
-				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &tb TB_DEC_BASE_SCALE		&tb TB_DEC_FREQUENCY_THRESHOLD		&none		&none		&ext_power EP_OFF
-				&none            &none            &none            &none            &bt BT_CLR               &bt BT_CLR					&none						&none						&none						&none
+				&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4             &tb TB_INC_BASE_SCALE			&tb TB_INC_FREQUENCY_THRESHOLD		&tb TB_INC_SMOOTHING_FACTOR		&tb TB_INC_INTERPOLATION_STEPS		&ext_power EP_ON
+				&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4            &tb TB_DEC_BASE_SCALE			&tb TB_DEC_FREQUENCY_THRESHOLD		&tb TB_DEC_SMOOTHING_FACTOR		&tb TB_DEC_INTERPOLATION_STEPS		&ext_power EP_OFF
+				&none            &none            &none            &none            &bt BT_CLR               &tb TB_INC_EXPONENTIAL_BASE	&tb TB_DEC_EXPONENTIAL_BASE						&none						&none						&none
 													&trans           &none            &none                  &none						&none						&none
 			>;
 		};
