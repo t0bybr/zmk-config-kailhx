@@ -150,6 +150,7 @@
 			tapping-term-ms = <200>;
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
+
   	};
 
   /*combos {
