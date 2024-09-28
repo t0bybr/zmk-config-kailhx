@@ -28,7 +28,7 @@
 
 #include <dt-bindings/zmk/mouse.h>
 
-#include "dts/pim447_behaviors.dtsi"
+#include "pim447_behaviors.dtsi"
 
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_move.dtsi>
