@@ -28,7 +28,6 @@
 
 #include <dt-bindings/zmk/mouse.h>
 
-#include "pimoroni_pim447_behaviors.dtsi"
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_move.dtsi>
 
