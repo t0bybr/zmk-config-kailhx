@@ -47,24 +47,28 @@
 	};
 };
 
-&i2c1 {
-	status = "okay";
-
-	compatible = "nordic,nrf-twi";
-    pinctrl-0 = <&i2c1_default>;
-	pinctrl-1 = <&i2c1_sleep>;
-	pinctrl-names = "default", "sleep";
-	clock-frequency = <400000>;
-
-    pimoroni_pim447: pimoroni_pim447@0a {
-        compatible = "zephyr,input-device", "pimoroni,pim447";
-        reg = <0x0A>;
-		int-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    	status = "okay";
-    };
-};
 
 / {
+    #if defined(CONFIG_PIMORONI_PIM447)
+
+
+    &i2c1 {
+        status = "okay";
+
+        compatible = "nordic,nrf-twi";
+        pinctrl-0 = <&i2c1_default>;
+        pinctrl-1 = <&i2c1_sleep>;
+        pinctrl-names = "default", "sleep";
+        clock-frequency = <400000>;
+
+        pimoroni_pim447: pimoroni_pim447@0a {
+            compatible = "zephyr,input-device", "pimoroni,pim447";
+            reg = <0x0A>;
+            int-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            status = "okay";
+        };
+    };
+    
     behaviors {
         mmv: mouse_move {
             compatible = "zmk,behavior-input-two-axis";
@@ -85,6 +89,7 @@
 	    scale-divisor = <1>;
 	};
 
+    #endif /* CONFIG_PIMORONI_PIM447 */
 
 };
 
