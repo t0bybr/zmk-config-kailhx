@@ -20,7 +20,7 @@
 
 #define DEFAULT 0
 
-pimoroni_pim447_listener {
+&pimoroni_pim447_listener {
 	compatible = "zmk,input-listener";
 	device = <&pimoroni_pim447>;
 	xy-swap;
