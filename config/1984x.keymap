@@ -20,7 +20,7 @@
 #define DEF 0 // default layer
 #define MSK 5 // mouse key layer
 #define MSC 6 // mouse scroll layer
-
+/*
 &caps_word {
   continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
 };
@@ -48,7 +48,7 @@
 			, <&macro_tap &kp N##num>; \
 };
 
-
+*/
 	
 
 
