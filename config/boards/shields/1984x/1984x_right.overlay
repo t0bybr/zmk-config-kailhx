@@ -60,6 +60,7 @@
         compatible = "zephyr,input-device", "pimoroni,pim447";
         reg = <0x0A>;
 		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    	status = "okay";
     };
 };
 
@@ -84,7 +85,7 @@
 	    scale-divisor = <1>;
 	};
 
-    
+
 };
 
 
