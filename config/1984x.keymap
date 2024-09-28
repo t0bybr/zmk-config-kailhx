@@ -32,7 +32,7 @@
             acceleration-exponent = <1>;
         };
     };
-
+/*
 	pimoroni_pim447_listener {
 		compatible = "zmk,input-listener";
 		device = <&pimoroni_pim447>;
@@ -40,7 +40,7 @@
         y-invert;
         scale-multiplier = <1>;
 	    scale-divisor = <1>;
-	};
+	};*/
 
 	keymap {
 		compatible = "zmk,keymap";
