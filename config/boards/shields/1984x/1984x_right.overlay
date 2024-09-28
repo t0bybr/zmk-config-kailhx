@@ -58,7 +58,7 @@
     pinctrl-names = "default", "sleep";
     clock-frequency = <400000>;
 
-    pimoroni_pim447: pim447@0a {
+    pim447: pim447@0a {
         compatible = "zmk,pimoroni-pim447";
         reg = <0x0A>;
         int-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -78,9 +78,9 @@
         };
     };
 
-	pimoroni_pim447_listener {
+	pim447_listener {
 		compatible = "zmk,input-listener";
-		device = <&pimoroni_pim447>;
+		device = <&pim447>;
 	    xy-swap;
         y-invert;
         scale-multiplier = <10>;
