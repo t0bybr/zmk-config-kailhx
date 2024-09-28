@@ -9,6 +9,15 @@
 #include <behaviors/pimoroni_pim447_behaviors.dtsi>
 
 
+
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 2500  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+
+#include <dt-bindings/zmk/mouse.h>
+
+#include <behaviors/mouse_keys.dtsi>
+#include <behaviors/mouse_move.dtsi>
+
 #define DEFAULT 0
 
 / {

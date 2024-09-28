@@ -23,14 +23,6 @@
 };
 
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 2500  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
-
-#include <dt-bindings/zmk/mouse.h>
-
-#include <behaviors/mouse_keys.dtsi>
-#include <behaviors/mouse_move.dtsi>
-
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
