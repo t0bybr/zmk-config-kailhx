@@ -9,7 +9,7 @@
 #include <behaviors/pimoroni_pim447_behaviors.dtsi>
 
 
-
+/ {
 
 #define DEFAULT 0
 
