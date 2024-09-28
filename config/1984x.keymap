@@ -12,6 +12,27 @@
 #define DEFAULT 0
 
 / {
+
+    behaviors {
+        mmv: mouse_move {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_X>;
+            y-input-code = <INPUT_REL_Y>;
+            time-to-max-speed-ms = <1>;
+            acceleration-exponent = <1>;
+        };
+    };
+
+	pimoroni_pim447_listener {
+		compatible = "zmk,input-listener";
+		device = <&pimoroni_pim447>;
+	    xy-swap;
+        y-invert;
+        scale-multiplier = <1>;
+	    scale-divisor = <1>;
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 
