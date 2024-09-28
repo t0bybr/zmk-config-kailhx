@@ -58,11 +58,11 @@
     pinctrl-names = "default", "sleep";
     clock-frequency = <400000>;
 
+
     pim447: pim447@0a {
-        compatible = "zmk,pimoroni-pim447";
+        compatible = "zephyr,input-device", "zmk,pimoroni-pim447";
         reg = <0x0A>;
-        int-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        status = "okay";
+		int-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     };
 };
 
@@ -74,7 +74,7 @@
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
             time-to-max-speed-ms = <700>;
-            acceleration-exponent = <4>;
+            acceleration-exponent = <2>;
         };
     };
 
@@ -84,7 +84,7 @@
 	    xy-swap;
         y-invert;
         scale-multiplier = <10>;
-	    scale-divisor = <1>;
+	    scale-divisor = <10>;
 	};
 };
 
