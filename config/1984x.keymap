@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-// #include <dt-bindings/trackball_actions.h>
+// #include <dt-bindings/tb_actions.h>
 
 
 
@@ -152,8 +152,8 @@
 			bindings = <&mo NAV>, <&caps_word>, <&kp CAPS>;
 		};
 
-		//tb: behavior_trackball_adjust_0  {
-        //    compatible = "zmk,behavior-trackball-adjust";
+		//tb: behavior_tb_actions_0  {
+        //    compatible = "zmk,behavior-tb-actions";
         //    #binding-cells = <1>;
         //};
   	};
