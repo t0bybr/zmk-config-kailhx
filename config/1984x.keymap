@@ -6,6 +6,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include "pimoroni_pim447_behaviors.dtsi"
+
 
 #define DEFAULT 0
 
