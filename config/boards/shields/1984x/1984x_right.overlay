@@ -79,7 +79,7 @@
 
 	pimoroni_pim447_listener {
 		compatible = "zmk,input-listener";
-		device = <&zmk_pimoroni_pim447>;
+		device = <&pimoroni_pim447>;
 	    xy-swap;
         y-invert;
         scale-multiplier = <10>;
