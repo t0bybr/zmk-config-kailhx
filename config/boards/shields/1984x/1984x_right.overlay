@@ -72,8 +72,8 @@
             #binding-cells = <1>;
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <700>;
-            acceleration-exponent = <3>;
+            time-to-max-speed-ms = <200>;
+            acceleration-exponent = <2>;
         };
     };
 
@@ -82,7 +82,7 @@
 		device = <&pimoroni_pim447>;
 	    xy-swap;
         y-invert;
-        scale-multiplier = <3>;
+        scale-multiplier = <5>;
 	    scale-divisor = <1>;
 	};
 };
