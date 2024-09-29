@@ -6,6 +6,7 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 #include <behaviors/pimoroni_pim447_behaviors.dtsi>
 
 
@@ -22,8 +23,8 @@
 			bindings = <
 				&kp Q			&kp W			&kp F            &kp P            &kp B                    &kp J           	&kp L            &kp U            &kp Y		&kp O
 				&kp A			&kp R			&kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I		&kp O
-				&kp A			&kp D			&kp C            &kp D            &kp V                    &kp K            &kp H            &kp COMMA        &kp I		&kp E
-												&kp C		     &kp D		      &kp R			           &bootloader      &sys_reset       &kp I
+				&kp A			&kp D			&kp C            &kp D            &bt BT_CLR               &bt BT_CLR       &kp H            &kp COMMA        &kp I		&kp E
+												&kp C		     &sys_reset       &bootloader	           &bootloader      &sys_reset       &kp I
 			>;
 		};
 	};
