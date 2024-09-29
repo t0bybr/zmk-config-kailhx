@@ -17,7 +17,6 @@
         ;
 };
 
-/*
 
 &pinctrl {
     i2c1_default: i2c1_default {
@@ -68,4 +67,4 @@
         com-sequential;
         prechargep = <0x22>;
     };
-};*/
+};
