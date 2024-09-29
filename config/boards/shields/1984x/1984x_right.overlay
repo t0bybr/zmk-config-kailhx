@@ -1,7 +1,7 @@
 #include "1984x.dtsi"
 
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 2500  // 600
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 5000  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #include <dt-bindings/zmk/mouse.h>
@@ -73,7 +73,7 @@
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
             time-to-max-speed-ms = <700>;
-            acceleration-exponent = <2>;
+            acceleration-exponent = <3>;
         };
     };
 
@@ -82,8 +82,8 @@
 		device = <&pimoroni_pim447>;
 	    xy-swap;
         y-invert;
-        scale-multiplier = <10>;
-	    scale-divisor = <10>;
+        scale-multiplier = <3>;
+	    scale-divisor = <1>;
 	};
 };
 
