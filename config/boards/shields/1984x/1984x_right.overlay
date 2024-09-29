@@ -1,8 +1,8 @@
 #include "1984x.dtsi"
 
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 5000  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 600  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 10    // 10
 
 #include <dt-bindings/zmk/mouse.h>
 
@@ -72,7 +72,7 @@
             #binding-cells = <1>;
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <200>;
+            time-to-max-speed-ms = <500>;
             acceleration-exponent = <1>;
         };
     };
