@@ -61,7 +61,7 @@
     pimoroni_pim447: zmk_pimoroni_pim447@0a {
         compatible = "zephyr,input-device", "zmk,pimoroni-pim447";
         reg = <0x0A>;
-		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW)>;
+		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
 
