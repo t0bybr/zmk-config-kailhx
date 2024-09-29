@@ -77,7 +77,7 @@
         };
     };
 
-	pimoroni_pim447_listener {
+	pimoroni_pim447_listener: mmv_input_listener {
 		compatible = "zmk,input-listener";
 		device = <&pimoroni_pim447>;
 	    xy-swap;
