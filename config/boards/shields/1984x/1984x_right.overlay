@@ -73,7 +73,7 @@
             x-input-code = <INPUT_REL_X>;
             y-input-code = <INPUT_REL_Y>;
             time-to-max-speed-ms = <200>;
-            acceleration-exponent = <2>;
+            acceleration-exponent = <1>;
         };
     };
 
@@ -82,7 +82,7 @@
 		device = <&pimoroni_pim447>;
 	    xy-swap;
         y-invert;
-        scale-multiplier = <5>;
+        scale-multiplier = <1>;
 	    scale-divisor = <1>;
 	};
 };
