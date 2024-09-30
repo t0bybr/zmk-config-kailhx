@@ -64,10 +64,9 @@
         status = "okay";
     };
 };
-/*
 
 / {
     chosen {
         zephyr,display = &oled;
     };
-};*/
+};
