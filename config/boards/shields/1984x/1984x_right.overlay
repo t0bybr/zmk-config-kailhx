@@ -62,18 +62,33 @@
         compatible = "zephyr,input-device", "zmk,pimoroni-pim447";
         reg = <0x0A>;
 		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        automouse-layer = <4>;
     };
 };
 
 / {
     behaviors {
-        mmv: mouse_move {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            x-input-code = <INPUT_REL_X>;
-            y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <500>;
-            acceleration-exponent = <1>;
+        // mmv: mouse_move {
+        //     compatible = "zmk,behavior-input-two-axis";
+        //     #binding-cells = <1>;
+        //     x-input-code = <INPUT_REL_X>;
+        //     y-input-code = <INPUT_REL_Y>;
+        //     time-to-max-speed-ms = <500>;
+        //     acceleration-exponent = <1>;
+        // };
+
+        &mmv {
+            acceleration-exponent = <1>;  // 1
+            time-to-max-speed-ms = <300>; // 300
+            delay-ms = <0>;
+            trigger-period-ms = <8>;      // 16
+        };
+
+        &msc {
+            acceleration-exponent = <1>;  // 0
+            time-to-max-speed-ms = <40>;  // 300
+            delay-ms = <0>;
+            trigger-period-ms = <8>;      // 16
         };
     };
 
