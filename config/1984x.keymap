@@ -76,7 +76,7 @@
 			>;
 		};
 
-/*		third_layer {
+		third_layer {
 			bindings = <
 				&kp LBRC		&kp AMPS		&kp STAR         &kp LPAR        &kp RBRC                    &none          &kp C_VOL_UP    &kp UC_MUTE      &kp C_VOL_UP	&none
 				&kp COLON		&kp DLLR		&kp PRCNT        &kp CARET       &kp PLUS                    &none          &kp C_PREV      &kp C_PP    	 &kp C_NEXT		&none
@@ -85,7 +85,7 @@
 			>;
 		};
 
-		system_layer {
+/*		system_layer {
 			bindings = <
 				&sys_reset			&ext_power EP_ON	&none            &none            &none            	   &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
 				&bootloader			&ext_power EP_OFF	&none            &none            &none                &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
