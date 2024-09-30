@@ -63,7 +63,7 @@
 				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
 				&hm LCTRL A		&hm RALT R		&hm LGUI S       &kp T      	  &kp D                    &kp H            &kp N            &hm RGUI E       &hm RALT I	&hm RCTRL O
 				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&hm &msc ESC	 &kp SPACE        &kp TAB			 	   &kp RSHFT	 	&mo SECOND       &mo THIRD 	
+												&kp ESC	 		 &kp SPACE        &kp TAB			 	   &kp RSHFT	 	&mo SECOND       &mo THIRD 	
 			>;
 		};
 
@@ -96,10 +96,10 @@
 
 		mouse_layer {
 			bindings = <
-				&none				&none				&none            &none            &none            	   &none		   	&none		     &none		    &none		&none
-				&none				&none 				&none            &none            &none                &none		    &none		     &none	 	  	&none		&none
-				&none				&none				&none            &none            &none                &none	        &none            &none   		&none		&none
-														&mkp LCLK        &mkp MCLK        &mkp RCLK	     	   &none	        &none            &none
+				&trans				&trans				&trans           &trans           &trans            	&trans		   	&trans		     &trans		    &trans		&trans
+				&trans				&trans 				&trans           &trans           &trans                &trans		    &trans		     &trans	 	  	&trans		&trans
+				&trans				&trans				&trans           &trans           &trans                &trans	        &trans           &trans   		&trans		&trans
+														&mkp LCLK        &mkp MCLK        &mkp RCLK	     	    &trans	        &trans           &trans
 			>;
 		};
 
