@@ -26,17 +26,33 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
-
-		lhp: layer_hold_prefered {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			flavor = "hold-preferred";
-			bindings = <&mo>, <&kp>;
-		};
 	};
 
+	combos {
+		compatible = "zmk,combos";
 
+		#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+		combo_##NAME { \
+			bindings = <BINDINGS>; \
+			key-positions = <KEYPOS>; \
+			layers = <LAYERS>; \
+			require-prior-idle-ms = 20;\
+		};
+
+		//  ╭─────────────────────╮          ╭─────────────────────╮
+		//  │   0   1   2   3   4 │          │  5   6   7   8  10  │
+		//  │  11  12  13  14  15 │          │ 15  16  17  18  19  │
+		//  │  20  21  22  23  24 ╰───╮  ╭───╯ 25  26  27  28  29  │
+		//  ╰────────────╮ 30  31  32 │  │ 33  34  35 ╭────────────╯
+		//               ╰────────────╯  ╰────────────╯
+
+		COMBO(ESC, &kp ESC, 1 2, DEFAULT);
+		COMBO(ENTER, &kp ENTER, 17 18, DEFAULT);
+		COMBO(BSPC, &kp BSPC, 7 8, DEFAULT);
+		COMBO(DEL, &kp DEL, 32 7 8, DEFAULT);
+		COMBO(SYSTEM, &mo SYSTEM, 30 35, DEFAULT);
+	};
+	
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -45,34 +61,34 @@
 				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
 				&hm LCTRL A		&hm RALT R		&hm LGUI S       &kp T      	  &kp D                    &kp H            &kp N            &hm RGUI E       &hm RALT I	&hm RCTRL O
 				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&hm &msc ESC	 &kp SPACE        &hm LSHFT TAB		 	   &hm RSHFT ENTER  &hm BSPC DEL     &mo SECOND 	
+												&hm &msc ESC	 &kp SPACE        &kp TAB			 	   &kp RSHFT	 	&mo SECOND       &mo THIRD 	
 			>;
 		};
 
 		second_layer {
 			bindings = <
-				&kp Q			&kp N7			&kp N8          &kp N9       &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
-				&kp A			&kp N4			&kp N5       	&kp N6       &kp D                    &kp H            &kp N            &hm RGUI E          &hm RALT I	&kp O
-				&kp Z			&kp N1			&kp N2          &kp N3       &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&kp C		    &kp N0       &kp LSFT		           &kp LCTRL	    &mo THIRD       &kp I
+				&kp LBKT		&kp KP_N7		&kp KP_N8       &kp KP_N9       &kp RBKT            	    &none          	&kp PG_UP       &kp UP           &kp HOME		&none
+				&kp SEMI		&kp KP_N4		&kp KP_N5      	&kp KP_N6       &kp EQUAL                   &none           &kp LEFT        &kp DOWN	     &kp RIGHT		&none
+				&kp GRAVE		&kp KP_N1		&kp KP_N2       &kp KP_N3       &kp BSLH               	    &none       	&kp PG_DN       &none	         &kp END		&none
+												&kp KP_DOT		&kp KP_N0       &kp MINUS			        &none	  		&trans	        &none
 			>;
 		};
 
 		third_layer {
 			bindings = <
-				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
-				&kp A			&kp R			&hm RALT S       &hm LGUI T       &kp D                    &kp H            &kp N            &hm RGUI E          &hm RALT I	&kp O
-				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo SYSTEM       &kp I
+				&kp LBRC		&kp AMPS		&kp STAR         &kp LPAR        &kp RBRC                    &none          &kp C_VOL_UP    &kp UC_MUTE      &kp C_VOL_UP	&none
+				&kp COLON		&kp DLLR		&kp PRCNT        &kp CARET       &kp PLUS                    &none          &kp C_PREV      &kp C_PP    	 &kp C_NEXT		&none
+				&kp TILDE		&kp EXCL		&kp AT           &kp HASH        &kp PIPE               	 &none       	&kp C_BRI_DEC   &none	         &kp C_BRI_INC	&none
+												&kp LPAR	     &kp RPAR        &kp UNDER		          	 &none		    &none       	&trans
 			>;
 		};
 
 		system_layer {
 			bindings = <
-				&sys_reset			&none			&none            &none            &none            	   &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
-				&bootloader			&none			&none            &none            &none                &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
-				&none				&none			&none            &none            &none                &bt BT_CLR       &none            &none        	  &none				&none
-													&none	   		 &none   		  &none	     	       &bootloader      &none       	 &none
+				&sys_reset			&ext_power EP_ON	&none            &none            &none            	   &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
+				&bootloader			&ext_power EP_OFF	&none            &none            &none                &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
+				&none				&none				&none            &none            &none                &bt BT_CLR       &none            &none        	  &none				&none
+														&trans	   		 &none   		  &none	     	       &none	        &none       	 &trans
 			>;
 		};
 	};
