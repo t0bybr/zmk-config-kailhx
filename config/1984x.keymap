@@ -21,12 +21,20 @@
 
 	behaviors {
 		hm: homerow_mods {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <2>;
-		tapping-term-ms = <250>;
-		quick-tap-ms = <200>;
-		flavor = "tap-preferred";
-		bindings = <&kp>, <&kp>;
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			tapping-term-ms = <250>;
+			quick-tap-ms = <200>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+
+		lhp: layer_hold_prefered {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			tapping-term-ms = <150>;
+			flavor = "hold-preferred";
+			bindings = <&mo>, <&kp>;
 		};
 	};
 
