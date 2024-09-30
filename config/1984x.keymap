@@ -51,10 +51,10 @@
 
 		second_layer {
 			bindings = <
-				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
-				&kp A			&kp R			&hm RALT S       &hm LGUI T       &kp D                    &kp H            &kp N            &hm RGUI E          &hm RALT I	&kp O
-				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo THIRD       &kp I
+				&kp Q			&kp N7			&kp N8          &kp N9       &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
+				&kp A			&kp N4			&kp N5       	&kp N6       &kp D                    &kp H            &kp N            &hm RGUI E          &hm RALT I	&kp O
+				&kp Z			&kp N1			&kp N2          &kp N3       &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
+												&kp C		    &kp N0       &kp LSFT		           &kp LCTRL	    &mo THIRD       &kp I
 			>;
 		};
 
