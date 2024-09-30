@@ -9,6 +9,11 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+include <dt-bindings/zmk/mouse.h>
+
+#include <behaviors/mouse_keys.dtsi>
+#include <behaviors/mouse_move.dtsi>
+
 #include <behaviors/pimoroni_pim447_behaviors.dtsi>
 
 #define DEFAULT 0
@@ -78,9 +83,9 @@
 
 /*		third_layer {
 			bindings = <
-				&kp LBRC		&kp AMPS		&kp STAR         &kp LPAR        &kp RBRC                    &none          &kp C_VOL_UP    &kp UC_MUTE      &kp C_VOL_UP	&none
-				&kp COLON		&kp DLLR		&kp PRCNT        &kp CARET       &kp PLUS                    &none          &kp C_PREV      &kp C_PP    	 &kp C_NEXT		&none
-				&kp TILDE		&kp EXCL		&kp AT           &kp HASH        &kp PIPE               	 &none       	&kp C_BRI_DEC   &none	         &kp C_BRI_INC	&none
+				&kp LBRC		&kp AMPS		&kp STAR         &kp LPAR        &kp RBRC                    &none          &kp C_VOL_DN    &kp C_MUTE       &kp C_VOL_UP		&none
+				&kp COLON		&kp DLLR		&kp PRCNT        &kp CARET       &kp PLUS                    &none          &kp C_PREV      &kp C_PP    	 &kp C_NEXT			&none
+				&kp TILDE		&kp EXCL		&kp AT           &kp HASH        &kp PIPE               	 &none       	&kp C_BRI_DEC   &none	         &kp C_BRI_INC		&none
 												&kp LPAR	     &kp RPAR        &kp UNDER		          	 &none		    &none       	&trans
 			>;
 		};*/

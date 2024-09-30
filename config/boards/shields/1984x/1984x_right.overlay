@@ -4,11 +4,7 @@
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 600  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 10    // 10
 
-#include <dt-bindings/zmk/mouse.h>
-
-#include <behaviors/mouse_keys.dtsi>
-#include <behaviors/mouse_move.dtsi>
-
+#
 &default_transform {
     col-offset = <5>;
 };
