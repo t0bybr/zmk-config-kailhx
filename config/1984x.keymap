@@ -15,7 +15,20 @@
 / {
 
 #define DEFAULT 0
+#define SECOND 1
+#define THIRD 2
+#define SYSTEM 5
 
+	behaviors {
+		hm: homerow_mods {
+		compatible = "zmk,behavior-hold-tap";
+		#binding-cells = <2>;
+		tapping-term-ms = <250>;
+		quick-tap-ms = <200>;
+		flavor = "tap-preferred";
+		bindings = <&kp>, <&kp>;
+		};
+	};
 
 
 	keymap {
@@ -23,10 +36,37 @@
 
 		default_layer {
 			bindings = <
-				&kp Q			&kp W			&kp F            &kp P            &kp B                    &kp J           	&kp L            &kp U            &kp Y		&kp O
-				&kp A			&kp R			&kp S            &kp T            &kp G                    &kp M            &kp N            &kp E            &kp I		&kp O
-				&kp A			&kp D			&kp C            &kp D            &bt BT_CLR               &bt BT_CLR       &kp H            &kp COMMA        &kp I		&kp E
-												&kp C		     &sys_reset       &bootloader	           &bootloader      &sys_reset       &kp I
+				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
+				&hm LCTRL A		&hm RALT R		&hm LGUI S       &kp T      	  &kp D                    &kp H            &kp N            &hmRGUI E        &hm RALT I	&hm RCTRL O
+				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
+												&hm msc ESC		 &kp SPACE        &hm LSHFT TAB		       &hm RSHFT ENTER  &hm BSPC DEL     &lhp SECOND THIRD 	
+			>;
+		};
+
+		second_layer {
+			bindings = <
+				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
+				&kp A			&kp R			&hm RALT S       &hm LGUI T       &kp D                    &kp H            &kp N            &RGUI E          &hm RALT I	&kp O
+				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
+												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo        &kp I
+			>;
+		};
+
+		third_layer {
+			bindings = <
+				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
+				&kp A			&kp R			&hm RALT S       &hm LGUI T       &kp D                    &kp H            &kp N            &RGUI E          &hm RALT I	&kp O
+				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
+												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo        &kp I
+			>;
+		};
+
+		system_layer {
+			bindings = <
+				&sys_reset			&none			&none            &none            &none            	   &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
+				&bootloader			&none			&none            &none            &none                &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
+				&none				&none			&none            &none            &none                &bt BT_CLR       &none            &none        	  &none				&none
+													&none	   		 &none   		  &none	     	       &bootloader      &none       	 &none
 			>;
 		};
 	};
