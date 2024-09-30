@@ -4,7 +4,7 @@
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 600  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 10    // 10
 
-#
+
 &default_transform {
     col-offset = <5>;
 };
