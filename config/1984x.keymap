@@ -17,6 +17,16 @@
 #define SYSTEM 	3
 #define MOUSE	4
 
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+	require-prior-idle-ms = 20;\
+
+  };
+
 / {
 	behaviors {
 		hm: homerow_mods {
@@ -31,14 +41,6 @@
 
 	combos {
 		compatible = "zmk,combos";
-
-		#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
-		combo_##NAME { \
-			bindings = <BINDINGS>; \
-			key-positions = <KEYPOS>; \
-			layers = <LAYERS>; \
-			require-prior-idle-ms = 20;\
-		};\
 
 		//  ╭─────────────────────╮          ╭─────────────────────╮
 		//  │   0   1   2   3   4 │          │  5   6   7   8  10  │
