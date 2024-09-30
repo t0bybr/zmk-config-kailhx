@@ -54,7 +54,7 @@
 				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
 				&kp A			&kp R			&hm RALT S       &hm LGUI T       &kp D                    &kp H            &kp N            &hm RGUI E          &hm RALT I	&kp O
 				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo        &kp I
+												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo THIRD       &kp I
 			>;
 		};
 
@@ -63,7 +63,7 @@
 				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            &kp U            &kp Y			&kp SQT
 				&kp A			&kp R			&hm RALT S       &hm LGUI T       &kp D                    &kp H            &kp N            &hm RGUI E          &hm RALT I	&kp O
 				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M            &kp COMMA        &kp DOT		&kp FSLH
-												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo        &kp I
+												&kp C		     &kp SPACE        &kp LSFT		           &kp LCTRL	    &mo SYSTEM       &kp I
 			>;
 		};
 
