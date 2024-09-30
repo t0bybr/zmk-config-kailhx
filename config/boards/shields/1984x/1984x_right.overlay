@@ -66,6 +66,20 @@
     };
 };
 
+&mmv {
+    acceleration-exponent = <1>;  // 1
+    time-to-max-speed-ms = <300>; // 300
+    delay-ms = <0>;
+    trigger-period-ms = <8>;      // 16
+};
+
+&msc {
+    acceleration-exponent = <1>;  // 0
+    time-to-max-speed-ms = <40>;  // 300
+    delay-ms = <0>;
+    trigger-period-ms = <8>;      // 16
+};
+
 / {
     behaviors {
         // mmv: mouse_move {
@@ -77,19 +91,7 @@
         //     acceleration-exponent = <1>;
         // };
 
-        &mmv {
-            acceleration-exponent = <1>;  // 1
-            time-to-max-speed-ms = <300>; // 300
-            delay-ms = <0>;
-            trigger-period-ms = <8>;      // 16
-        };
 
-        &msc {
-            acceleration-exponent = <1>;  // 0
-            time-to-max-speed-ms = <40>;  // 300
-            delay-ms = <0>;
-            trigger-period-ms = <8>;      // 16
-        };
     };
 
 	pimoroni_pim447_listener {
