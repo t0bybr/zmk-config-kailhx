@@ -46,11 +46,11 @@
 		//  ╰────────────╮ 30  31  32 │  │ 33  34  35 ╭────────────╯
 		//               ╰────────────╯  ╰────────────╯
 
-		COMBO(ESC, &kp ESC, 1 2, DEFAULT);
-		COMBO(ENTER, &kp ENTER, 17 18, DEFAULT);
-		COMBO(BSPC, &kp BSPC, 7 8, DEFAULT);
-		COMBO(DEL, &kp DEL, 32 7 8, DEFAULT);
-		COMBO(SYSTEM, &mo SYSTEM, 30 35, DEFAULT);
+		COMBO(ESC, &kp ESC, 1 2, DEFAULT)
+		COMBO(ENTER, &kp ENTER, 17 18, DEFAULT)
+		COMBO(BSPC, &kp BSPC, 7 8, DEFAULT)
+		COMBO(DEL, &kp DEL, 32 7 8, DEFAULT)
+		COMBO(SYSTEM, &mo SYSTEM, 30 35, DEFAULT)
 	};
 	
 	keymap {
