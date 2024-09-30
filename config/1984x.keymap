@@ -17,15 +17,15 @@
 #define SYSTEM 	3
 #define MOUSE	4
 
-#define COMBO(NAME, BINDINGS, KEYPOS) \
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
   combo_##NAME { \
     timeout-ms = <50>; \
     bindings = <BINDINGS>; \
     key-positions = <KEYPOS>; \
-    layers = <0>; \
+    layers = <LAYERS>; \
   };
 
-  
+
 / {
 	behaviors {
 		hm: homerow_mods {
