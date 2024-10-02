@@ -49,6 +49,11 @@
             bindings = <&mo>, <&to>;
         };
 
+        pim447: zmk_pim447_behaviors_0 {
+            compatible = "zmk,pim447-behaviors";
+            #binding-cells = <1>;
+        };
+
 	};
 
 	combos {
