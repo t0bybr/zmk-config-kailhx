@@ -109,7 +109,7 @@
 
 		mouse_layer {
 			bindings = <
-				&pim447 PIM447_MOUSE_INC_MAX_SPEED		&trans				&trans           &trans           &trans            	&trans		   	&trans		     &trans		    &trans		&trans
+				&trans		&trans				&trans           &trans           &trans            	&trans		   	&trans		     &trans		    &trans		&trans
 				&trans				&trans 				&trans           &trans           &trans                &trans		    &trans		     &trans	 	  	&trans		&trans
 				&trans				&trans				&trans           &trans           &trans                &trans	        &trans           &trans   		&trans		&trans
 														&mkp LCLK        &mkp MCLK        &mkp RCLK	     	    &trans	        &trans           &trans
