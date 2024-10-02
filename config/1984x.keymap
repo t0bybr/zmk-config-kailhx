@@ -14,7 +14,7 @@
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_move.dtsi>
 
-#include <behaviors/pimoroni_pim447_behaviors.dtsi>
+#include <behaviors/pim447_behaviors.dtsi>
 
 #define DEFAULT 0
 #define SECOND 	1
