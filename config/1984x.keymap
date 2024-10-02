@@ -51,8 +51,61 @@
             bindings = <&mo>, <&to>;
         };
 
+        m_max_speed: pim447_mouse_max_speed {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&pim447 PIM447_MOUSE_INC_MAX_SPEED>, <&pim447 PIM447_MOUSE_DEC_MAX_SPEED>;
+            mods = <(MOD_LSFT)>;
+        };
 
+        s_max_speed: pim447_scroll_max_speed {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&pim447 PIM447_SCROLL_INC_MAX_SPEED>, <&pim447 PIM447_SCROLL_DEC_MAX_SPEED>;
+            mods = <(MOD_LSFT)>;
+        };
 
+        m_max_time: pim447_mouse_max_time {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&pim447 PIM447_MOUSE_INC_MAX_TIME>, <&pim447 PIM447_MOUSE_DEC_MAX_TIME>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        s_max_time: pim447_scroll_max_time {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&pim447 PIM447_SCROLL_INC_MAX_TIME>, <&pim447 PIM447_SCROLL_DEC_MAX_TIME>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        m_smooth: pim447_mouse_smoothing_factor {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&pim447 PIM447_MOUSE_INC_SMOOTHING_FACTOR>, <&pim447 PIM447_MOUSE_DEC_SMOOTHING_FACTOR>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        s_smooth: pim447_scroll_smoothing_factor {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&pim447 PIM447_SCROLL_INC_SMOOTHING_FACTOR>, <&pim447 PIM447_SCROLL_DEC_SMOOTHING_FACTOR>;
+            mods = <(MOD_LSFT)>;
+        };
+
+		pim447_hue: pim447_inc_hue_increment_factor {
+			compatible = "zmk,behavior-mod-morph";
+			#binding-cells = <0>;
+			bindings = <&pim447 PIM447_INC_HUE_INCREMENT_FACTOR>, <&pim447 PIM447_DEC_HUE_INCREMENT_FACTOR>;
+			mods = <(MOD_LSFT)>;
+		}
+
+		pim447_sleep: pim447_toggle_sleep {
+			compatible = "zmk,behavior-mod-morph";
+			#binding-cells = <0>;
+			bindings = <&pim447 PIM447_ENABLE_SLEEP>, <&pim447 PIM447_DISABLE_SLEEP>;
+			mods = <(MOD_LSFT)>;
+		}
 	};
 
 	combos {
@@ -80,7 +133,7 @@
 				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            			&kp U            &kp Y			&kp SQT
 				&hm LCTRL A		&hm RALT R		&hm LGUI S       &kp T      	  &kp D                    &kp H            &kp N            			&hm RGUI E       &hm RALT I	&hm RCTRL O
 				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M          				&kp COMMA        &kp DOT		&kp FSLH
-												&kp ESC	 		 &kp SPACE        &kp TAB			 	   &kp RSHFT	 	&td_mt SECOND SECOND      	&td_mt THIRD THIRD 	
+												&kp TAB 		 &kp SPACE     	  &kp LDHFT			 	   &kp RSHFT	 	&td_mt SECOND SECOND      	&td_mt THIRD THIRD 	
 			>;
 		};
 
@@ -113,10 +166,10 @@
 
 		mouse_layer {
 			bindings = <
-				&pim447 PIM447_MOUSE_INC_MAX_SPEED		&trans				&trans           &trans           &trans            	&trans		   	&trans		     &trans		    &trans		&trans
-				&trans				&trans 				&trans           &trans           &trans                &trans		    &trans		     &trans	 	  	&trans		&trans
-				&trans				&trans				&trans           &trans           &trans                &trans	        &trans           &trans   		&trans		&trans
-														&mkp LCLK        &mkp MCLK        &mkp RCLK	     	    &trans	        &trans           &trans
+				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans           &pim44_sleep        	&trans		   	&trans		     &trans		    &trans		&trans
+				&m_max_time			&s_max_time			&trans         				  &trans           &trans               &trans		    &mkp LCLK	     &mkp MCLK 	  	&mkp RCLK	&trans
+				&m_smooth			&s_smooth			&trans         				  &trans           &trans               &trans	        &trans           &trans   		&trans		&trans
+														&pim447 PIM447_TOGGLE_MODE    &trans           &kp LSHFT	   	    &trans	        &trans           &trans
 			>;
 		};
 
