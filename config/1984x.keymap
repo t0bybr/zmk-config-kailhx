@@ -51,7 +51,7 @@
 
 		tb: zmk_pimoroni_pim447_behaviors {
 			compatible = "zmk,pimoroni-pim447-behaviors";
-			#binding-cells = <0>;
+			#binding-cells = <1>;
 
 		};
 	};
