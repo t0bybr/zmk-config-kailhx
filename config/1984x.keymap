@@ -99,13 +99,6 @@
 			bindings = <&pim447 PIM447_INC_HUE_INCREMENT_FACTOR>, <&pim447 PIM447_DEC_HUE_INCREMENT_FACTOR>;
 			mods = <(MOD_LSFT)>;
 		};
-
-		pim447_sleep: pim447_toggle_sleep {
-			compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&pim447 PIM447_ENABLE_SLEEP>, <&pim447 PIM447_DISABLE_SLEEP>;
-			mods = <(MOD_LSFT)>;
-		};
 	};
 
 	combos {
@@ -166,7 +159,7 @@
 
 		mouse_layer {
 			bindings = <
-				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans           &pim447_sleep       	&trans		   	&trans		     &trans		    &trans		&trans
+				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans           &trans		       	&trans		   	&trans		     &trans		    &trans		&trans
 				&m_max_time			&s_max_time			&trans         				  &trans           &trans               &trans		    &mkp LCLK	     &mkp MCLK 	  	&mkp RCLK	&trans
 				&m_smooth			&s_smooth			&trans         				  &trans           &trans               &trans	        &trans           &trans   		&trans		&trans
 														&pim447 PIM447_TOGGLE_MODE    &trans           &kp LSHFT	   	    &trans	        &trans           &trans
