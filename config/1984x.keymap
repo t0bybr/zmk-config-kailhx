@@ -98,14 +98,14 @@
 			#binding-cells = <0>;
 			bindings = <&pim447 PIM447_INC_HUE_INCREMENT_FACTOR>, <&pim447 PIM447_DEC_HUE_INCREMENT_FACTOR>;
 			mods = <(MOD_LSFT)>;
-		}
+		};
 
 		pim447_sleep: pim447_toggle_sleep {
 			compatible = "zmk,behavior-mod-morph";
 			#binding-cells = <0>;
 			bindings = <&pim447 PIM447_ENABLE_SLEEP>, <&pim447 PIM447_DISABLE_SLEEP>;
 			mods = <(MOD_LSFT)>;
-		}
+		};
 	};
 
 	combos {
