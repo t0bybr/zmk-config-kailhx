@@ -48,6 +48,12 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
+
+		tb: zmk_pimoroni_pim447_behaviors {
+			compatible = "zmk,pimoroni-pim447-behaviors";
+			#binding-cells = <0>;
+
+		};
 	};
 
 	combos {
@@ -108,7 +114,7 @@
 
 		mouse_layer {
 			bindings = <
-				&trans				&trans				&trans           &trans           &trans            	&trans		   	&trans		     &trans		    &trans		&trans
+				&tb PIM447_MOUSE_INC_MAX_SPEED		&trans				&trans           &trans           &trans            	&trans		   	&trans		     &trans		    &trans		&trans
 				&trans				&trans 				&trans           &trans           &trans                &trans		    &trans		     &trans	 	  	&trans		&trans
 				&trans				&trans				&trans           &trans           &trans                &trans	        &trans           &trans   		&trans		&trans
 														&mkp LCLK        &mkp MCLK        &mkp RCLK	     	    &trans	        &trans           &trans
