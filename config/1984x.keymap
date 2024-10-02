@@ -166,7 +166,7 @@
 
 		mouse_layer {
 			bindings = <
-				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans           &pim44_sleep        	&trans		   	&trans		     &trans		    &trans		&trans
+				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans           &pim447_sleep       	&trans		   	&trans		     &trans		    &trans		&trans
 				&m_max_time			&s_max_time			&trans         				  &trans           &trans               &trans		    &mkp LCLK	     &mkp MCLK 	  	&mkp RCLK	&trans
 				&m_smooth			&s_smooth			&trans         				  &trans           &trans               &trans	        &trans           &trans   		&trans		&trans
 														&pim447 PIM447_TOGGLE_MODE    &trans           &kp LSHFT	   	    &trans	        &trans           &trans
