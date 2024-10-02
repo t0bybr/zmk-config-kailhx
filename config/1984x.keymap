@@ -14,8 +14,8 @@
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_move.dtsi>
 
-#include <behaviors/pim447_behaviors.dtsi>
-#include <dt-bindings/pim447_behaviors.h>
+#include <behaviors/behavior_pim447.dtsi>
+#include <dt-bindings/behavior_pim447.h>
 
 
 #define DEFAULT 0
