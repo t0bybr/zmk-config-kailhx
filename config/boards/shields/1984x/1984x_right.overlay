@@ -49,6 +49,12 @@
     };
 };
 
+/ {
+    chosen {
+        zephyr,display = &oled;
+    };
+};
+
 &i2c1 {
     status = "okay";
 
@@ -63,6 +69,22 @@
         reg = <0x0A>;
 		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         automouse-layer = <4>;
+    };
+
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <32>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+        inversion-on;
+        prechargep = <0x22>;
     };
 };
 
