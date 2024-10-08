@@ -64,9 +64,16 @@
     pinctrl-names = "default", "sleep";
     clock-frequency = <400000>;
 
-    oled: ssd1306@3c {
+    pimoroni_pim447: zmk_pimoroni_pim447@0a {
+        compatible = "zephyr,input-device", "zmk,pimoroni-pim447";
+        reg = <0x0A>;
+		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        automouse-layer = <4>;
+    };
+
+    oled: ssd1306@3d {
         compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
+        reg = <0x3d>;
         width = <128>;
         height = <32>;
         segment-offset = <0>;
@@ -109,7 +116,14 @@
 
     };
 
-
+	pimoroni_pim447_listener {
+		compatible = "zmk,input-listener";
+		device = <&pimoroni_pim447>;
+	    xy-swap;
+        y-invert;
+        scale-multiplier = <1>;
+	    scale-divisor = <1>;
+	};
 };
 
 
