@@ -4,12 +4,6 @@ if SHIELD_1984X_LEFT || SHIELD_1984X_RIGHT
 config ZMK_SPLIT
   default y
 
-endif
-
-
-
-
-if SHIELD_1984X_LEFT
   if ZMK_DISPLAY
 
   config I2C
@@ -36,4 +30,4 @@ if SHIELD_1984X_LEFT
   endchoice
 
   endif # LVGL
-endif # SHIELD_1984X_LEFT
+endif
