@@ -143,7 +143,10 @@
 		COMBO(DEL, &kp DEL, 27 28, DEFAULT)
 		COMBO(SYSTEM, &mo SYSTEM, 32 33, DEFAULT)
 		COMBO(FOURTH, &mo FOURTH, 31 34, DEFAULT)
+		COMBO(BOOTLOADER_LEFT, &bootloader, 0 11 20, DEFAULT)
+		COMBO(BOOTLOADER_RIGHT, &bootloader, 10 19 29, DEFAULT)
 	};
+
 	
 	keymap {
 		compatible = "zmk,keymap";
