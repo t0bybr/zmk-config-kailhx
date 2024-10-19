@@ -68,7 +68,7 @@
         compatible = "zephyr,input-device", "zmk,pimoroni-pim447";
         reg = <0x0A>;
 		int-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        automouse-layer = <4>;
+        automouse-layer = <7>;
     };
 
     oled: ssd1306@3c {
