@@ -21,8 +21,11 @@
 #define DEFAULT 0
 #define SECOND 	1
 #define THIRD 	2
-#define SYSTEM 	3
-#define MOUSE	4
+#define FOURTH 	3
+#define FIFTH 	4
+#define SIXTH 	5
+#define SYSTEM 	6
+#define MOUSE	7
 
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
   combo_##NAME { \
@@ -50,6 +53,14 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
+
+		sk: sticky_key {
+			compatible = "zmk,behavior-sticky-key";
+			#binding-cells = <1>;
+			bindings = <&kp>;
+			release-after-ms = <1000>;
+			ignore-modifiers;
+		};
 
         m_max_speed: pim447_mouse_max_speed {
             compatible = "zmk,behavior-mod-morph";
@@ -99,6 +110,20 @@
 			bindings = <&pim447 PIM447_INC_HUE_INCREMENT_FACTOR>, <&pim447 PIM447_DEC_HUE_INCREMENT_FACTOR>;
 			mods = <(MOD_LSFT)>;
 		};
+
+		td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo SECOND>, <&mo FIFTH>;
+        };
+
+		td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo THIRD>, <&mo SIXTH>;
+        };
 	};
 
 	combos {
@@ -114,8 +139,10 @@
 		COMBO(ESC, &kp ESC, 1 2, DEFAULT)
 		COMBO(ENTER, &kp ENTER, 17 18, DEFAULT)
 		COMBO(BSPC, &kp BSPC, 7 8, DEFAULT)
-		COMBO(DEL, &kp DEL, 32 7 8, DEFAULT)
-		COMBO(SYSTEM, &mo SYSTEM, 30 35, DEFAULT)
+		COMBO(TAB, &kp TAB, 12 13, DEFAULT)
+		COMBO(DEL, &kp DEL, 27 28, DEFAULT)
+		COMBO(SYSTEM, &mo SYSTEM, 32 33, DEFAULT)
+		COMBO(FOURTH, &mo FOURTH, 31 34, DEFAULT)
 	};
 	
 	keymap {
@@ -123,28 +150,55 @@
 
 		default_layer {
 			bindings = <
-				&kp Q			&kp W			&kp F            &kp P            &kp G                    &kp J           	&kp L            			&kp U            &kp Y			&kp SQT
-				&hm LCTRL A		&hm RALT R		&hm LGUI S       &kp T      	  &kp D                    &kp H            &kp N            			&hm RGUI E       &hm RALT I	&hm RCTRL O
-				&kp Z			&kp X			&kp C            &kp V            &kp B               	   &kp K       		&kp M          				&kp COMMA        &kp DOT		&kp FSLH
-												&kp TAB 		 &kp SPACE     	  &kp LSHFT			 	   &kp RSHFT	 	&td_mt SECOND SECOND      	&td_mt THIRD THIRD 	
+				&kp Q			&kp W			&kp F           &kp P           &kp G                    &kp J           	&kp L      			&kp U            &kp Y			&kp SQT
+				&kp A			&kp R			&kp S      		&kp T      	  	&kp D                    &kp H            	&kp N           	&kp E     		 &kp I			&kp O
+				&kp Z			&kp X			&kp C           &kp V           &kp B               	 &kp K       		&kp M          		&kp COMMA        &kp DOT		&kp SEMI
+												&none 		 	&td0	     	&kp LSHFT			 	 &kp SPACE	 		&td1		      	&none 	
 			>;
 		};
 
 		second_layer {
 			bindings = <
-				&kp LBKT		&kp KP_N7		&kp KP_N8       &kp KP_N9       &kp RBKT            	    &none          	&kp PG_UP       &kp UP           &kp HOME		&none
-				&kp SEMI		&kp KP_N4		&kp KP_N5      	&kp KP_N6       &kp EQUAL                   &none           &kp LEFT        &kp DOWN	     &kp RIGHT		&none
-				&kp GRAVE		&kp KP_N1		&kp KP_N2       &kp KP_N3       &kp BSLH               	    &none       	&kp PG_DN       &none	         &kp END		&none
-												&kp KP_DOT		&kp KP_N0       &kp MINUS			        &none	  		&trans	        &none
+				&none			&none			&none     		&none       	&kp C_VOL_UP            &none          	&kp HOME        &kp UP           &kp END		&DEL
+				&sk LSHFT		&sk LGUI		&sk RALT        &sk LCTRL       &kp C_VOL_DN            &none           &kp LEFT        &kp DOWN	     &kp RIGHT		&BSPC
+				&none			&none			&kp C_PREV      &kp C_NEXT      &kp C_PP               	&none       	&kp PG_DN       &PG_UP	         &none			&ENTER
+												&trans		 	&trans       	&trans			        &trans	  		&trans	        &none
 			>;
 		};
 
 		third_layer {
 			bindings = <
-				&kp LBRC		&kp AMPS		&kp STAR         &kp LPAR        &kp RBRC                    &none          &kp C_VOL_DN    &kp C_MUTE       &kp C_VOL_UP		&none
-				&kp COLON		&kp DLLR		&kp PRCNT        &kp CARET       &kp PLUS                    &none          &kp C_PREV      &kp C_PP    	 &kp C_NEXT			&none
-				&kp TILDE		&kp EXCL		&kp AT           &kp HASH        &kp PIPE               	 &none       	&kp C_BRI_DEC   &none	         &kp C_BRI_INC		&none
-												&kp LPAR	     &kp RPAR        &kp UNDER		          	 &none		    &none       	&trans
+				&none			&kp LBKT		&kp LBRC         &kp LPAR       &kp TILDE                   &kp CARET       &kp RPAR    	&kp RBRC     	 &kp RBKT			&GRAVE
+				&kp MINUS		&kp STAR		&kp EQUAL        &kp UNDER      &kp DLLR                    &kp HASH        &sk RCTRL     	&sk RALT    	 &sk RGUI			&skHFT
+				&kp PLUS		&kp PIPE		&kp AT           &kp FSLH       &kp PRCNT               	&none       	&kp BSLH	    &kp AMPS	     &kp QMARK			&kp EXCL
+												&none	   		 &trans        	&trans		          	 	&trans		    &trans       	&none
+			>;
+		};
+
+		fourth_layer {
+			bindings = <
+				&kp N7			&kp N5			&kp N3         	&kp N1       	&kp N9                   	&kp N8      	&kp N0  	  	&kp N2    	 	 &kp N4				&kp N6
+				&kp LSHFT		&kp LGUI		&kp RALT        &kp LCTRL       &kp F11                     &kp F10         &kp RCTRL     	&kp RALT    	 &kp RGUI			&RSHFT
+				&kp F7			&kp F5			&kp F3          &kp F1        	&kp F9               		&kp F8       	&kp F12		    &kp F2	    	 &kp F4				&kp F6
+												&none	   		&trans        	&trans		          	 	&trans		    &trans       	&none
+			>;
+		};
+
+		fifth_layer {
+			bindings = <
+				&trans				&trans				&trans            &trans          &trans            	&trans		   	&trans		     &trans		    &trans		&trans
+				&kp LSHFT			&kp LGUI 			&kp RALT          &kp LCTRL       &trans                &trans		    &trans		     &trans	 	  	&trans		&trans
+				&trans				&trans				&trans            &trans          &trans                &trans	        &trans           &trans   		&trans		&trans
+														&none	   		  &trans   		  &trans	     	    &trans	        &trans       	 &none
+			>;
+		};
+
+		sixth_layer {
+			bindings = <
+				&trans				&trans				&trans            &trans          &trans            	&trans		   	&trans		     &trans		    &trans		&trans
+				&trans				&trans 				&trans            &trans          &trans                &trans		    &kp RCTRL		 &kp RALT	 	&kp RGUI	&kp RSHFT
+				&trans				&trans				&trans            &trans          &trans                &trans	        &trans           &trans   		&trans		&trans
+														&none	   		  &trans   		  &trans	     	    &trans	        &trans       	 &none
 			>;
 		};
 
@@ -153,16 +207,16 @@
 				&sys_reset			&ext_power EP_ON	&none            &none            &none            	   &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
 				&bootloader			&ext_power EP_OFF	&none            &none            &none                &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
 				&none				&none				&none            &none            &none                &bt BT_CLR       &none            &none        	  &none				&none
-														&trans	   		 &none   		  &none	     	       &none	        &none       	 &trans
+														&none	   		 &trans   		  &trans	     	   &trans	        &trans       	 &none
 			>;
 		};
 
 		mouse_layer {
 			bindings = <
-				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans           &trans		       	&trans		   	&trans		     &trans		    &trans		&trans
-				&m_max_time			&s_max_time			&trans         				  &trans           &trans               &trans		    &mkp LCLK	     &mkp MCLK 	  	&mkp RCLK	&trans
-				&m_smooth			&s_smooth			&trans         				  &trans           &trans               &trans	        &trans           &trans   		&trans		&trans
-														&pim447 PIM447_TOGGLE_MODE    &trans           &kp LSHFT	   	    &trans	        &trans           &trans
+				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans       					    &trans		       	&trans		   	&trans		     &trans		    &trans		&trans
+				&m_max_time			&s_max_time			&trans         				  &trans         					&trans              &trans		    &mkp LCLK	     &mkp MCLK 	  	&mkp RCLK	&trans
+				&m_smooth			&s_smooth			&trans         				  &trans							&trans              &trans	        &trans           &trans   		&trans		&trans
+														&trans						  &pim447 PIM447_TOGGLE_MODE        &kp LSHFT	   	    &trans	        &trans           &trans
 			>;
 		};
 
