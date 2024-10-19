@@ -159,17 +159,17 @@
 
 		second_layer {
 			bindings = <
-				&none			&none			&none     		&none       	&kp C_VOL_UP            &none          	&kp HOME        &kp UP           &kp END		&DEL
-				&sk LSHFT		&sk LGUI		&sk RALT        &sk LCTRL       &kp C_VOL_DN            &none           &kp LEFT        &kp DOWN	     &kp RIGHT		&BSPC
-				&none			&none			&kp C_PREV      &kp C_NEXT      &kp C_PP               	&none       	&kp PG_DN       &PG_UP	         &none			&ENTER
+				&none			&none			&none     		&none       	&kp C_VOL_UP            &none          	&kp HOME        &kp UP           &kp END		&kp DEL
+				&sk LSHFT		&sk LGUI		&sk RALT        &sk LCTRL       &kp C_VOL_DN            &none           &kp LEFT        &kp DOWN	     &kp RIGHT		&kp BSPC
+				&none			&none			&kp C_PREV      &kp C_NEXT      &kp C_PP               	&none       	&kp PG_DN       &kp PG_UP	     &none			&kp ENTER
 												&trans		 	&trans       	&trans			        &trans	  		&trans	        &none
 			>;
 		};
 
 		third_layer {
 			bindings = <
-				&none			&kp LBKT		&kp LBRC         &kp LPAR       &kp TILDE                   &kp CARET       &kp RPAR    	&kp RBRC     	 &kp RBKT			&GRAVE
-				&kp MINUS		&kp STAR		&kp EQUAL        &kp UNDER      &kp DLLR                    &kp HASH        &sk RCTRL     	&sk RALT    	 &sk RGUI			&skHFT
+				&none			&kp LBKT		&kp LBRC         &kp LPAR       &kp TILDE                   &kp CARET       &kp RPAR    	&kp RBRC     	 &kp RBKT			&kp GRAVE
+				&kp MINUS		&kp STAR		&kp EQUAL        &kp UNDER      &kp DLLR                    &kp HASH        &sk RCTRL     	&sk RALT    	 &sk RGUI			&sk RSHFT
 				&kp PLUS		&kp PIPE		&kp AT           &kp FSLH       &kp PRCNT               	&none       	&kp BSLH	    &kp AMPS	     &kp QMARK			&kp EXCL
 												&none	   		 &trans        	&trans		          	 	&trans		    &trans       	&none
 			>;
@@ -178,7 +178,7 @@
 		fourth_layer {
 			bindings = <
 				&kp N7			&kp N5			&kp N3         	&kp N1       	&kp N9                   	&kp N8      	&kp N0  	  	&kp N2    	 	 &kp N4				&kp N6
-				&kp LSHFT		&kp LGUI		&kp RALT        &kp LCTRL       &kp F11                     &kp F10         &kp RCTRL     	&kp RALT    	 &kp RGUI			&RSHFT
+				&kp LSHFT		&kp LGUI		&kp RALT        &kp LCTRL       &kp F11                     &kp F10         &kp RCTRL     	&kp RALT    	 &kp RGUI			&kp RSHFT
 				&kp F7			&kp F5			&kp F3          &kp F1        	&kp F9               		&kp F8       	&kp F12		    &kp F2	    	 &kp F4				&kp F6
 												&none	   		&trans        	&trans		          	 	&trans		    &trans       	&none
 			>;
