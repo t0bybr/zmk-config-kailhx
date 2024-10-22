@@ -207,9 +207,9 @@
 
 		system_layer {
 			bindings = <
-				&sys_reset			&ext_power EP_ON	&none            &none            &none            	   &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
-				&bootloader			&ext_power EP_OFF	&none            &none            &none                &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
-				&none				&none				&none            &none            &none                &bt BT_CLR       &none            &none        	  &none				&none
+				&sys_reset			&ext_power EP_ON	&none            &none &none  &bt BT_SEL 0   	&bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3		&sys_reset
+				&bootloader			&ext_power EP_OFF	&none            &none &none &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3		&bootloader
+				&none				&none				&none            &none            &none &bt BT_CLR       &none            &none        	  &none				&studio_unlock
 														&none	   		 &trans   		  &trans	     	   &trans	        &trans       	 &none
 			>;
 		};
