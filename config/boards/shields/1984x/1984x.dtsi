@@ -1,6 +1,6 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <1984x-layouts.dtsi>
+#include <boards/shields/1984x/1984x-layouts.dtsi>
 
 / {
     chosen {
