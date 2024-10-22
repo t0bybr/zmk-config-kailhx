@@ -9,7 +9,7 @@
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_move.dtsi>
 
-&default_transform {
+&k1984x_transform {
     col-offset = <5>;
 };
 
