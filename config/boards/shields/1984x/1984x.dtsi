@@ -7,11 +7,11 @@
 
 / {
     chosen {
-        zmk,physical-layout = <&1984x_layout>;
+        zmk,physical-layout = &k1984x_layout;
         zmk,kscan = &kscan0;
     };
 
-    1984x_transform: keymap_transform_0 {
+    k1984x_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
         rows = <4>;
@@ -31,11 +31,11 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)    RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,
         wakeup-source;
     };
     
-    1984x_layout: 1984x_layout {
+    k1984x_layout: k1984x_layout {
         compatible = "zmk,physical-layout";
         display-name = "1984x";
 
-   		transform = <&1984x_transform>;
+   		transform = <&k1984x_transform>;
 
 
         keys  //                     w   h    x    y     rot    rx    ry
@@ -82,8 +82,8 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)    RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,
 		compatible = "zmk,physical-layout-position-map";
 		complete;
 
-        1984x {
-            physical-layout = <&1984x_layout>;
+        k1984x {
+            physical-layout = <&k1984x_layout>;
             positions
                 = <0  1  2  3  4       5  6  7  8  10>
                 , <11 12 13 14 15      15 16 17 18 19>
