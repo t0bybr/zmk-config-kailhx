@@ -18,7 +18,7 @@ include:
     #snippet: zmk-usb-logging
   - board: seeeduino_xiao_ble
     shield: 1984x_right
-    snippet: studio-rpc-usb-uart
+    snippet: common-config studio-rpc-usb-uart
     #snippet: zmk-usb-logging
   # - board: seeeduino_xiao_ble
   #   shield: settings_reset

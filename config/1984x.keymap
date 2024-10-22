@@ -27,6 +27,9 @@
 #define SYSTEM 	6
 #define MOUSE	7
 
+#define UNLCK &studio_unlock
+
+
 #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
   combo_##NAME { \
     timeout-ms = <50>; \
