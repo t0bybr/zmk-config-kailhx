@@ -11,12 +11,13 @@
 
 #include <dt-bindings/zmk/mouse.h>
 
+/*
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_move.dtsi>
 
 #include <behaviors/behavior_pim447.dtsi>
 #include <dt-bindings/behavior_pim447.h>
-
+*/
 
 #define DEFAULT 0
 #define SECOND 	1
@@ -25,7 +26,7 @@
 #define FIFTH 	4
 #define SIXTH 	5
 #define SYSTEM 	6
-#define MOUSE	7
+/*#define MOUSE	7*/
 
 #define UNLCK &studio_unlock
 
@@ -64,7 +65,7 @@
 			release-after-ms = <1000>;
 			ignore-modifiers;
 		};
-
+/*
         m_max_speed: pim447_mouse_max_speed {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -112,7 +113,7 @@
 			#binding-cells = <0>;
 			bindings = <&pim447 PIM447_INC_HUE_INCREMENT_FACTOR>, <&pim447 PIM447_DEC_HUE_INCREMENT_FACTOR>;
 			mods = <(MOD_LSFT)>;
-		};
+		};*/
 
 		td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -216,7 +217,7 @@
 														&none	   		 &trans   		  &trans	     	   &trans	        &trans       	 &none
 			>;
 		};
-
+/*
 		mouse_layer {
 			bindings = <
 				&m_max_speed		&s_max_speed		&pim447_hue    				  &trans       					    &trans		       	&trans		   	&trans		     &trans		    &trans		&trans
@@ -226,7 +227,7 @@
 			>;
 		};
 
-		/* empty_layer {
+		empty_layer {
 			bindings = <
 				&none				&none				&none            &none            &none            	   &none		   	&none		     &none		    &none		&none
 				&none				&none 				&none            &none            &none                &none		    &none		     &none	 	  	&none		&none
